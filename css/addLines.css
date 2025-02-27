@@ -1,0 +1,134 @@
+@import url('common.css');
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.preview {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.preview table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.preview th, .preview td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.preview th {
+    background-color: #f2f2f2;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.container {
+    width: 800px;
+    margin-left: 2em;
+    padding-right: 3em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    padding: 9px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    border-radius: 25px;
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    border-radius: 25px;
+}
+
+.delete-button {
+    background-color: #ff5733;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    position: relative;
+    left: 10px;
+    top: 0;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.line-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.line-container table {
+    flex: 1;
+}
+
+.containerRight {
+    min-height: 760px;
+    min-width: 1000px;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.containerRight::-webkit-scrollbar {
+    width: 10px;
+}
+
+.containerRight::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.containerRight::-webkit-scrollbar-thumb {
+    background: #b1b1b1;
+    border-radius: 10px;
+}
+
+.containerRight::-webkit-scrollbar-thumb:hover {
+    background: #cecece;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.containerLogo {
+    text-align: center;
+}
