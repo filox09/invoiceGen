@@ -22,6 +22,8 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 2em;
+            margin: 1em; /* Add margin for responsiveness */
+            max-width: 90%; /* Ensure the container does not exceed the viewport width */
         }
         .logo {
             width: 150px;
@@ -56,6 +58,41 @@
         }
         .menu button:hover {
             background-color: #3b3b3b;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1em;
+                margin: 1em;
+            }
+            .title {
+                font-size: 1.5em;
+            }
+            .description {
+                font-size: 1em;
+            }
+            .menu button {
+                font-size: 0.9em;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.5em;
+                margin: 0.5em;
+            }
+            .title {
+                font-size: 1.2em;
+            }
+            .description {
+                font-size: 0.9em;
+            }
+            .menu button {
+                font-size: 0.8em;
+                padding: 8px 15px;
+            }
         }
     </style>
 </head>
