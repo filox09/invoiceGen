@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/formHeader.css"> <!-- Link to the formHeader CSS -->
+    <title>XYZ DEVELOPMENT - Accueil</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center; 
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+        }
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .description {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 2em;
+        }
+        .menu button {
+            background-color: #292929;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+            padding: 12px 30px 12px 30px;
+        }
+        .menu button:hover {
+            background-color: #3b3b3b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="assets/logo.png" alt="XYZ DEVELOPMENT" class="logo">
+        <div class="title">Invoice Generator</div>
+        <div class="description">Votre solution pour la gestion des devis et factures personnalisées.</div>
+        <div class="menu">
+            <button class="form-header-button" onclick="location.href='newInvoice.html'">Voir la Facture</button>
+            <button class="form-header-button" onclick="location.href='formulaire.html'">Personnalisation de l'En-tête</button>
+            <button class="form-header-button" onclick="location.href='addLines.html'">Ajouter des Lignes</button>
+            <!-- Add more buttons here for other pages -->
+        </div>
+    </div>
+</body>
+</html>

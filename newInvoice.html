@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/newInvoice.css">
+    <title>XYZ DEVELOPMENT - DEVIS</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <span id="devisName">DEVIS ABC CONSULTING</span>
+            </h1>
+            <img id="logoAdd" src="assets/logo.png" alt="logo" onclick="goToIndex()" style="width: 150px; height: auto;">
+        </div>
+
+        <div class="info-section">
+            <div class="company-info">
+                <span id="companyNomPrenom">John DOE</span><br>
+                <strong>Nom de l'Entreprise :</strong> <span id="companyNomEntreprise">XYZ DEVELOPMENT</span><br>
+                <strong>Adresse :</strong> <span id="companyAdresse">123 RUE DE L'EXEMPLE, 75000 PARIS</span><br>
+                <strong>Email : </strong><a href="mailto:john.doe@example.com" id="companyEmail">john.doe@example.com</a><br>
+                <strong>N° TVA Intracommunautaire :</strong> <span id="companyTva">FR12345678901</span><br>
+                <strong>N° SIRET :</strong> <span id="companySiret">12345678900012</span><br>
+            </div>
+            <div class="client-info">
+                <span id="nomPrenom">Jane SMITH</span><br>
+                <strong>Nom de l'Entreprise : </strong><span id="nomEntreprise">ABC CONSULTING</span><br>
+                <strong>Adresse : </strong><span id="adresseEntreprise">456 AVENUE DES TESTS, 69000 LYON</span><br>
+                <strong>Email : </strong><span id="emailEntreprise">contact@abcconsulting.com</span><br>
+                <strong>N° TVA Intracommunautaire : </strong><span id="tvaEntreprise">FR98765432109</span><br>
+                <strong>N° SIRET : </strong><span id="siretEntreprise">98765432100098</span>
+            </div>
+        </div>
+        <div id="number_flex">
+            <h2 class="number"><span id="devisNumero">DEVIS N° 25-02-9</span></h2>
+            <div class="date-container">
+                Le <span id="devisDate">25/02/25</span>
+            </div>
+        </div>
+        <section class="devis">
+            <table id="tableauDevis">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Description</th>
+                        <th>Heures</th>
+                        <th>Prix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Les lignes seront ajoutées ici dynamiquement -->
+                </tbody>
+            </table>
+            <div class="total-row">
+                <div class="total-label">Total HT</div>
+                <div class="total-amount" id="totalAmount">0,00 €</div>
+            </div>
+            <h4>informations bancaires :</h4>
+            <div class="iban-bic-info">   
+                <strong>Code IBAN :</strong> <span id="iban">FR76 1234 5678 9012 3456 7890 123</span><br>
+                <strong>Code BIC :</strong> <span id="bic">ABCDEFGHXXX</span>
+            </div>
+        </section>
+        <footer>
+            <p><span id="footerCompanyNomEntreprise">XYZ DEVELOPMENT</span> - Merci pour votre confiance. Pour toute question: <a href="mailto:john.doe@example.com" id="footerCompanyEmail">john.doe@example.com</a></p>
+        </footer>
+        <button id="print-btn">Imprimer en PDF</button>
+    </div>
+    <script src="js/newInvoice.js"></script>
+</body>
+</html>
