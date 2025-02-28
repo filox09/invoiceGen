@@ -21,7 +21,8 @@ body {
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    width: 900px;
+    width: 90%; /* Use relative width */
+    max-width: 900px; /* Set a maximum width */
     box-sizing: border-box;
     max-height: 100%; /* Ensure the container does not exceed the viewport height */
     overflow: auto; /* Allow scrolling within the container if needed */
@@ -67,7 +68,8 @@ label {
     margin-bottom: 5px;
     color: #6e6e6e;
     font-size: 1em;
-    width: 350px;
+    width: 100%; /* Use relative width */
+    max-width: 350px; /* Set a maximum width */
     margin-left: 12px;
 }
 
@@ -120,4 +122,46 @@ input[type="button"]:hover {
     display: flex;
     justify-content: space-evenly;
     width: 100%; /* Ensure the button container takes the full width */
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 1.8em; /* Slightly reduce font size for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    label {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="date"] {
+        max-width: 100%;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .formulaire {
+        flex-wrap: wrap; /* Enable flex wrap for the form */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Further reduce font size for mobile devices */
+    }
+
+    .separator {
+        display: none; /* Hide separators on mobile devices */
+    }
 }
