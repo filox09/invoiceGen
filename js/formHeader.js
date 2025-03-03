@@ -58,3 +58,40 @@ function newInvoice() {
 function goToIndex() {
     window.location.href = 'index.html';
 }
+
+function enregistrerDonnees() {
+    const form1 = document.getElementById('clientForm2');
+    const form2 = document.getElementById('clientForm');
+    const formData1 = new FormData(form1);
+    const formData2 = new FormData(form2);
+
+    formData1.forEach((value, key) => {
+        localStorage.setItem(key, value);
+    });
+
+    formData2.forEach((value, key) => {
+        localStorage.setItem(key, value);
+    });
+
+    alert('Données enregistrées avec succès!');
+}
+
+function chargerDonnees() {
+    const form1 = document.getElementById('clientForm2');
+    const form2 = document.getElementById('clientForm');
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+
+        if (form1.elements[key]) {
+            form1.elements[key].value = value;
+        }
+
+        if (form2.elements[key]) {
+            form2.elements[key].value = value;
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', chargerDonnees);
