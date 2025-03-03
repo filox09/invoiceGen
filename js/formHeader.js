@@ -59,6 +59,12 @@ function goToIndex() {
     window.location.href = 'index.html';
 }
 
+function viderLocalStorage() {
+    // Vider le localStorage
+    localStorage.clear();
+    window.location.reload();
+}
+
 function enregistrerDonnees() {
     const form1 = document.getElementById('clientForm2');
     const form2 = document.getElementById('clientForm');
