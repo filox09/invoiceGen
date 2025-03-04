@@ -42,8 +42,31 @@ function enregistrerDonnees() {
     localStorage.setItem('iban', iban);
     localStorage.setItem('bic', bic);
 
-    alert('Données enregistrées avec succès!');
+    // Utiliser SweetAlert2 pour afficher une popup avec un bouton personnalisé
+    Swal.fire({
+        title: 'Succès!',
+        text: 'Données enregistrées avec succès!',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        customClass: {
+            confirmButton: 'swal2-confirm-button'
+        }
+    });
 }
+
+// Ajouter le style personnalisé pour le bouton SweetAlert2
+const style = document.createElement('style');
+style.innerHTML = `
+    .swal2-confirm-button {
+        background-color: #4CAF50 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 5px !important;
+        padding: 10px 20px !important;
+        font-size: 16px !important;
+    }
+`;
+document.head.appendChild(style);
 
 function addLines() {
     // Rediriger vers la page addLines.html
@@ -69,6 +92,12 @@ function chargerDonnees() {
     const form1 = document.getElementById('clientForm2');
     const form2 = document.getElementById('clientForm');
 
+    // Définir les valeurs par défaut
+    const defaultValues = {
+        iban: 'FR76 1234 5678 9012 3456 7890 123',
+        bic: 'ABCDEFGHXXX'
+    };
+
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         const value = localStorage.getItem(key);
@@ -80,6 +109,14 @@ function chargerDonnees() {
         if (form2.elements[key]) {
             form2.elements[key].value = value;
         }
+    }
+
+    // Appliquer les valeurs par défaut si elles ne sont pas dans le localStorage
+    if (!localStorage.getItem('iban')) {
+        document.getElementById('iban').textContent = defaultValues.iban;
+    }
+    if (!localStorage.getItem('bic')) {
+        document.getElementById('bic').textContent = defaultValues.bic;
     }
 }
 

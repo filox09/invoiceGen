@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inVoice Generator - Personnalisation des informations</title>
-  <link rel="stylesheet" href="css/formHeader.css">
+    <link rel="stylesheet" href="css/formHeader.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
         .separator {
             border-top: 1px solid #c0c0c0;
             margin: 20px 0; 
             width: 100%;
         }
-
-        
     </style>
 </head>
 <body>  
@@ -22,7 +22,6 @@
         </div>
         <h1>Personnalisation des informations</h1><br>
         <div class="formulaire">
-
             <form id="clientForm2">
                 <label for="devisName">Nom du Devis</label>
                 <input type="text" id="devisName" name="devisName" placeholder="DEVIS XYZ DEVELOPMENT">
@@ -52,11 +51,8 @@
 
                 <label for="iban">IBAN :</label>
                 <input type="text" id="iban" name="iban" placeholder="FR76 1234 5678 9012 3456 7890 123">
-
-
             </form>
             
-
             <form id="clientForm">
                 <label for="devisNumero">N° DEVIS :</label>
                 <input type="text" id="devisNumero" name="devisNumero" placeholder="DEVIS N° 25-02-9">
@@ -87,13 +83,13 @@
                 <label for="bic">BIC :</label>
                 <input type="text" id="bic" name="bic" placeholder="ABCDEFGH123">
             </form>
-         
         </div>
         <div class="button">
             <input type="button" value="Vider la mémoire" onclick="viderLocalStorage()">
             <input type="button" value="Enregistrer" onclick="enregistrerDonnees()">
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/formHeader.js"></script>
 </body>
 </html>
