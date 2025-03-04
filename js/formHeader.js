@@ -19,8 +19,8 @@ function enregistrerDonnees() {
     const iban = document.getElementById('iban').value;
     const bic = document.getElementById('bic').value;
 
-    // Afficher les valeurs récupérées dans la console pour débogage
-    //console.log('logoUrl:', logoUrl);
+    // Convertir la date en format ISO 8601 (YYYY-MM-DD)
+    const formattedDate = new Date(devisDate).toISOString().split('T')[0];
 
     // Stocker les données dans le localStorage
     localStorage.setItem('companyNomPrenom', companyNomPrenom);
@@ -38,11 +38,11 @@ function enregistrerDonnees() {
     localStorage.setItem('devisName', devisName);
     localStorage.setItem('devisNumero', devisNumero);
     localStorage.setItem('logoUrl', logoUrl);
-    localStorage.setItem('devisDate', devisDate);
+    localStorage.setItem('devisDate', formattedDate); // Utiliser la date formatée
     localStorage.setItem('iban', iban);
     localStorage.setItem('bic', bic);
 
-    alert('Données enregistrées !');
+    alert('Données enregistrées avec succès!');
 }
 
 function addLines() {
@@ -63,23 +63,6 @@ function viderLocalStorage() {
     // Vider le localStorage
     localStorage.clear();
     window.location.reload();
-}
-
-function enregistrerDonnees() {
-    const form1 = document.getElementById('clientForm2');
-    const form2 = document.getElementById('clientForm');
-    const formData1 = new FormData(form1);
-    const formData2 = new FormData(form2);
-
-    formData1.forEach((value, key) => {
-        localStorage.setItem(key, value);
-    });
-
-    formData2.forEach((value, key) => {
-        localStorage.setItem(key, value);
-    });
-
-    alert('Données enregistrées avec succès!');
 }
 
 function chargerDonnees() {

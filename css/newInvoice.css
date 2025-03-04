@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 210mm; 
     margin: auto;
     overflow: hidden;
@@ -18,6 +18,7 @@ body {
     border-bottom: 0;
     box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1), -10px 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    color: #292929;
 }
 
 .header {
@@ -27,7 +28,7 @@ body {
 }
 
 a {
-    color: rgb(58, 58, 58);
+    color: #292929;
 }
 
 .info-section {
@@ -100,16 +101,21 @@ a {
 
 .iban-bic-info {
     flex: 1;
-    color: #555; /* Lighter color for bank info */
+    color: #777; /* Lighter color for bank info */
 }
 
 h4 {
     margin-top: 0px;
     margin-bottom: 10px;
+    color: #292929;
+}
+h1, h2{
+    color: #292929;
 }
 
 .bank-details {
     margin-top: 0; /* Remove top margin */
+    font-size: 14px;
 }
 
 .total-row {
@@ -121,11 +127,13 @@ h4 {
 .total-label {
     font-weight: bold;
     margin-bottom: 5px;
+    font-size: large;
+    color: #292929;
 }
 
 .total-amount {
-    font-size: 1.5em;
-    color: #707070; /* Different color for total amount */
+    font-size: 1.7em;
+    color: #777; /* Different color for total amount */
 }
 
 footer {
@@ -137,8 +145,8 @@ footer {
 
 #print-btn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 10px;
+    right: 10px;
     background-color: #4CAF50;
     border: 2px solid #4CAF50;
     color: white;
@@ -146,7 +154,7 @@ footer {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     border-radius: 25px;
     transition-duration: 0.4s;
