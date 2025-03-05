@@ -11,13 +11,19 @@ window.onload = function() {
             .then(response => response.text());
     }
 
+    // Function to update the total price
+    function updateTotal() {
+        const totalPrice = lignesDevis.reduce((total, ligne) => total + ligne.prix, 0);
+        document.getElementById('totalPrice').textContent = `${totalPrice.toFixed(2)} €`;
+    }
+
     // Ajouter chaque ligne au tableau
     lignesDevis.forEach((ligne, index) => {
         const nouvelleLigne = previewBody.insertRow();
         nouvelleLigne.insertCell(0).textContent = ligne.service;
         nouvelleLigne.insertCell(1).textContent = ligne.description;
         nouvelleLigne.insertCell(2).textContent = ligne.heures.toFixed(1);
-        nouvelleLigne.insertCell(3).textContent = ligne.prix.toFixed(2);
+        nouvelleLigne.insertCell(3).textContent = `${ligne.prix.toFixed(2)} €`; // Ajouter le symbole €
 
         // Créer une cellule pour le bouton supprimer
         const deleteCell = nouvelleLigne.insertCell(4);
@@ -35,6 +41,9 @@ window.onload = function() {
         };
         deleteCell.appendChild(deleteButton);
     });
+
+    // Initial update of the total price
+    updateTotal();
 };
 
 function ajouterLigne() {
@@ -67,7 +76,7 @@ function ajouterLigne() {
     }
 }
 
-function supprimerLigne(ligne, deleteDiv) {
+function supprimerLigne(ligne) {
     // Récupérer l'index de la ligne à supprimer
     const ligneIndex = ligne.rowIndex - 1; // -1 car rowIndex est basé sur l'index dans le tbody
 
@@ -82,7 +91,9 @@ function supprimerLigne(ligne, deleteDiv) {
 
     // Supprimer la ligne de l'aperçu
     ligne.remove();
-    deleteDiv.remove();
+
+    // Mettre à jour le total
+    updateTotal();
 }
 
 function viderLocalStorage() {

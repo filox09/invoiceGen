@@ -37,21 +37,27 @@
             </form>
         </div>
         <div class="container containerRight">
-            <div class="preview" id="preview">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Service</th>
-                            <th>Description</th>
-                            <th>Heures</th>
-                            <th>Prix</th>
-                            <th style="width: 1%;"></th> <!-- Empty column for delete button -->
-                        </tr>
-                    </thead>
-                    <tbody id="previewBody">
-                        <!-- Les lignes d'aperçu seront ajoutées ici -->
-                    </tbody>
-                </table>
+            <div class="preview-container">
+                <div class="preview" id="preview">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Description</th>
+                                <th>Heures</th>
+                                <th>Prix</th>
+                                <th style="width: 1%;"></th> <!-- Empty column for delete button -->
+                            </tr>
+                        </thead>
+                        <tbody id="previewBody">
+                            <!-- Les lignes d'aperçu seront ajoutées ici -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="total-row">
+                <div class="total-label">Total HT</div>
+                <div class="total-amount" id="totalPrice">0.00 €</div>
             </div>
         </div>
     </div>

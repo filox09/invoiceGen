@@ -19,8 +19,8 @@ html, body {
 .container {
     background-color: #ffffff;
     padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Material design border radius */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Material design shadow */
     width: 90%; /* Use relative width */
     max-width: 900px; /* Set a maximum width */
     box-sizing: border-box;
@@ -70,36 +70,45 @@ label {
     font-size: 1em;
     width: 100%; /* Use relative width */
     max-width: 350px; /* Set a maximum width */
-    margin-left: 12px;
+    margin-left: 0px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="url"],
 input[type="date"] {
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1em;
-    border-radius: 25px;
     width: 100%; /* Make the input fields take the full width */
     max-width: 340px; /* Limit the maximum width */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for focus effect */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="date"]:focus {
+    border-color: #6200ea; /* Material design primary color */
+    box-shadow: 0 0 0 2px rgba(98, 0, 234, 0.2); /* Material design focus shadow */
 }
 
 input[type="button"] {
-    background-color: #292929;
+    background-color: #292929; /* Keep the existing button color */
     color: #fff;
     border: none;
-    border-radius: 25px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 1em;
     margin-top: 20px;
-    padding: 12px 30px 12px 30px;
+    padding: 12px 30px;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
 input[type="button"]:hover {
-    background-color: #3b3b3b;
+    background-color: #3b3b3b; /* Darker shade for hover effect */
 }
 
 .logo {
