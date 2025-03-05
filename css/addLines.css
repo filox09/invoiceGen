@@ -33,7 +33,7 @@ label {
     background-color: #f2f2f2;
 }
 
-body {
+.body {
     display: flex;
     justify-content: center;
     align-items: center;

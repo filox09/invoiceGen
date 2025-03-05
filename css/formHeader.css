@@ -7,8 +7,8 @@ html, body {
     overflow: hidden; /* Prevent scrolling on the body */
 }
 
-body {
-    font-family: Arial, sans-serif;
+.body {
+    font-family: 'Roboto', sans-serif;
     background-color: #f4f4f9;
     display: flex;
     justify-content: center;
@@ -122,6 +122,12 @@ input[type="button"]:hover {
     display: flex;
     justify-content: space-evenly;
     width: 100%; /* Ensure the button container takes the full width */
+}
+
+.separator {
+    border-top: 1px solid #c0c0c0;
+    margin: 20px 0; 
+    width: 100%;
 }
 
 /* Add media queries for responsiveness */

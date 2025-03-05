@@ -88,7 +88,17 @@ function supprimerLigne(ligne) {
 function viderLocalStorage() {
     // Vider le localStorage
     localStorage.clear();
-    window.location.reload();
+    Swal.fire({
+        title: 'Succès!',
+        text: 'Mémoire vidée avec succès!',
+        icon: 'success',
+        draggable: true,
+        showConfirmButton: false,
+        timer: 1000
+    }).then(() => {
+        window.location.reload();
+    });
+
 }
 
 function newInvoice() {

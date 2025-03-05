@@ -7,86 +7,82 @@
     <link rel="stylesheet" href="css/formHeader.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <style>
-        .separator {
-            border-top: 1px solid #c0c0c0;
-            margin: 20px 0; 
-            width: 100%;
-        }
-    </style>
 </head>
 <body>  
-    <div class="container">
-        <div class="containerLogo">
-            <img class="logo" src="assets/logo.png" alt="G9 DEVELOMENT" onclick="goToIndex()" width="100px">
-        </div>
-        <h1>Personnalisation des informations</h1><br>
-        <div class="formulaire">
-            <form id="clientForm2">
-                <label for="devisName">Nom du Devis</label>
-                <input type="text" id="devisName" name="devisName" placeholder="DEVIS XYZ DEVELOPMENT">
+    <div class="body">
+        <div class="container">
+            <div class="containerLogo">
+                <img class="logo" src="assets/logo.png" alt="G9 DEVELOMENT" onclick="goToIndex()" width="100px">
+            </div>
+            <h1>Personnalisation des informations</h1><br>
+            <div class="formulaire">
+                <form id="clientForm2">
+                    <label for="devisName">Nom du Devis</label>
+                    <input type="text" id="devisName" name="devisName" placeholder="DEVIS XYZ DEVELOPMENT">
 
-                <label for="companyNomPrenom">Nom et Prénom :</label>
-                <input type="text" id="companyNomPrenom" name="companyNomPrenom" placeholder="John DOE">
-                
-                <label for="companyNomEntreprise">Nom de l'Entreprise :</label>
-                <input type="text" id="companyNomEntreprise" name="companyNomEntreprise" placeholder="XYZ DEVELOPMENT">
-                
-                <label for="companyAdresse">Adresse :</label>
-                <input type="text" id="companyAdresse" name="companyAdresse" placeholder="123 RUE DE L'EXEMPLE, 75000 PARIS">
-                
-                <label for="companyEmail">Email :</label>
-                <input type="email" id="companyEmail" name="companyEmail" placeholder="john.doe@example.com">
-                
-                <label for="companyTva">N° TVA Intracommunautaire :</label>
-                <input type="text" id="companyTva" name="companyTva" placeholder="FR12345678901">
-                
-                <label for="companySiret">N° SIRET :</label>
-                <input type="text" id="companySiret" name="companySiret" placeholder="12345678900012">
+                    <label for="companyNomPrenom">Nom et Prénom :</label>
+                    <input type="text" id="companyNomPrenom" name="companyNomPrenom" placeholder="John DOE">
+                    
+                    <label for="companyNomEntreprise">Nom de l'Entreprise :</label>
+                    <input type="text" id="companyNomEntreprise" name="companyNomEntreprise" placeholder="XYZ DEVELOPMENT">
+                    
+                    <label for="companyAdresse">Adresse :</label>
+                    <input type="text" id="companyAdresse" name="companyAdresse" placeholder="123 RUE DE L'EXEMPLE, 75000 PARIS">
+                    
+                    <label for="companyEmail">Email :</label>
+                    <input type="email" id="companyEmail" name="companyEmail" placeholder="john.doe@example.com">
+                    
+                    <label for="companyTva">N° TVA Intracommunautaire :</label>
+                    <input type="text" id="companyTva" name="companyTva" placeholder="FR12345678901">
+                    
+                    <label for="companySiret">N° SIRET :</label>
+                    <input type="text" id="companySiret" name="companySiret" placeholder="12345678900012">
 
-                <label for="logoUrl">URL du Logo :</label>
-                <input type="url" id="logoUrl" name="logoUrl" placeholder="https://example.com/logo.png">
-                
-                <div class="separator"></div>
+                    <label for="logoUrl">URL du Logo :</label>
+                    <input type="url" id="logoUrl" name="logoUrl" placeholder="https://example.com/logo.png">
+                    
+                    <div class="separator"></div>
 
-                <label for="iban">IBAN :</label>
-                <input type="text" id="iban" name="iban" placeholder="FR76 1234 5678 9012 3456 7890 123">
-            </form>
+                    <label for="iban">IBAN :</label>
+                    <input type="text" id="iban" name="iban" placeholder="FR76 1234 5678 9012 3456 7890 123">
+                </form>
+                
+                <form id="clientForm">
+                    <label for="devisNumero">N° DEVIS :</label>
+                    <input type="text" id="devisNumero" name="devisNumero" placeholder="DEVIS N° 25-02-9">
+                    
+                    <label for="nomPrenom">Nom et Prénom :</label>
+                    <input type="text" id="nomPrenom" name="nomPrenom" placeholder="Jane SMITH">
+                    
+                    <label for="nomEntreprise">Nom de l'entreprise :</label>
+                    <input type="text" id="nomEntreprise" name="nomEntreprise" placeholder="ABC CONSULTING">
+
+                    <label for="adresse">Adresse :</label>
+                    <input type="text" id="adresse" name="adresse" placeholder="456 AVENUE DES TESTS, 69000 LYON">
+
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" placeholder="contact@abcconsulting.com">
+
+                    <label for="tva">N° TVA Intracommunautaire :</label>
+                    <input type="text" id="tva" name="tva" placeholder="FR98765432109">
+
+                    <label for="siret">N° SIRET :</label>
+                    <input type="text" id="siret" name="siret" placeholder="98765432100098">
             
-            <form id="clientForm">
-                <label for="devisNumero">N° DEVIS :</label>
-                <input type="text" id="devisNumero" name="devisNumero" placeholder="DEVIS N° 25-02-9">
-                
-                <label for="nomPrenom">Nom et Prénom :</label>
-                <input type="text" id="nomPrenom" name="nomPrenom" placeholder="Jane SMITH">
-                
-                <label for="nomEntreprise">Nom de l'entreprise :</label>
-                <input type="text" id="nomEntreprise" name="nomEntreprise" placeholder="ABC CONSULTING">
+                    <label for="devisDate">Date du devis :</label>
+                    <input type="date" id="devisDate" name="devisDate" value="2025-02-23" min="2025-01-01" max="2050-12-31" />
 
-                <label for="adresse">Adresse :</label>
-                <input type="text" id="adresse" name="adresse" placeholder="456 AVENUE DES TESTS, 69000 LYON">
+                    <div class="separator"></div>
 
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" placeholder="contact@abcconsulting.com">
-
-                <label for="tva">N° TVA Intracommunautaire :</label>
-                <input type="text" id="tva" name="tva" placeholder="FR98765432109">
-
-                <label for="siret">N° SIRET :</label>
-                <input type="text" id="siret" name="siret" placeholder="98765432100098">
-          
-                <label for="devisDate">Date du devis :</label>
-                <input type="date" id="devisDate" name="devisDate" value="2025-02-23" min="2025-01-01" max="2050-12-31" />
-
-                <div class="separator"></div>
-
-                <label for="bic">BIC :</label>
-                <input type="text" id="bic" name="bic" placeholder="ABCDEFGH123">
-            </form>
-        </div>
-        <div class="button">
-            <input type="button" value="Vider la mémoire" onclick="viderLocalStorage()">
-            <input type="button" value="Enregistrer" onclick="enregistrerDonnees()">
+                    <label for="bic">BIC :</label>
+                    <input type="text" id="bic" name="bic" placeholder="ABCDEFGH123">
+                </form>
+            </div>
+    
+            <div class="button">
+                <input type="button" value="Vider la mémoire" onclick="viderLocalStorage()">
+                <input type="button" value="Enregistrer" onclick="enregistrerDonnees()">
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
