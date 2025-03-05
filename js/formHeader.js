@@ -47,26 +47,11 @@ function enregistrerDonnees() {
         title: 'Succès!',
         text: 'Données enregistrées avec succès!',
         icon: 'success',
-        confirmButtonText: 'OK',
-        customClass: {
-            confirmButton: 'swal2-confirm-button'
-        }
+        draggable: true,
+        showConfirmButton: false,
+        timer: 1000
     });
 }
-
-// Ajouter le style personnalisé pour le bouton SweetAlert2
-const style = document.createElement('style');
-style.innerHTML = `
-    .swal2-confirm-button {
-        background-color: #4CAF50 !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 5px !important;
-        padding: 10px 20px !important;
-        font-size: 16px !important;
-    }
-`;
-document.head.appendChild(style);
 
 function addLines() {
     // Rediriger vers la page addLines.html
@@ -85,7 +70,17 @@ function goToIndex() {
 function viderLocalStorage() {
     // Vider le localStorage
     localStorage.clear();
-    window.location.reload();
+    Swal.fire({
+        title: 'Succès!',
+        text: 'Mémoire vidée avec succès!',
+        icon: 'success',
+        draggable: true,
+        showConfirmButton: false,
+        timer: 1000
+    }).then(() => {
+        window.location.reload();
+    });
+
 }
 
 function chargerDonnees() {
