@@ -5,6 +5,12 @@ window.onload = function() {
     // Récupérer le tbody du tableau d'aperçu
     const previewBody = document.getElementById('previewBody');
 
+    // Function to fetch SVG content
+    function fetchSVG() {
+        return fetch('assets/trashIcon.svg')
+            .then(response => response.text());
+    }
+
     // Ajouter chaque ligne au tableau
     lignesDevis.forEach((ligne, index) => {
         const nouvelleLigne = previewBody.insertRow();
@@ -13,10 +19,17 @@ window.onload = function() {
         nouvelleLigne.insertCell(2).textContent = ligne.heures.toFixed(1);
         nouvelleLigne.insertCell(3).textContent = ligne.prix.toFixed(2);
 
+        // Créer une cellule pour le bouton supprimer
         const deleteCell = nouvelleLigne.insertCell(4);
+        deleteCell.className = 'delete-cell';
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete-button';
-        deleteButton.textContent = 'Supprimer';
+
+        // Fetch and set the SVG content
+        fetchSVG().then(svgContent => {
+            deleteButton.innerHTML = svgContent;
+        });
+
         deleteButton.onclick = function() {
             supprimerLigne(nouvelleLigne);
         };
@@ -41,34 +54,20 @@ function ajouterLigne() {
         // Stocker les lignes mises à jour dans le localStorage
         localStorage.setItem('lignesDevis', JSON.stringify(lignesDevis));
 
-        // Ajouter la ligne à l'aperçu
-        const previewBody = document.getElementById('previewBody');
-        const nouvelleLigne = previewBody.insertRow();
-        nouvelleLigne.insertCell(0).textContent = service;
-        nouvelleLigne.insertCell(1).textContent = description;
-        nouvelleLigne.insertCell(2).textContent = heures.toFixed(1);
-        nouvelleLigne.insertCell(3).textContent = prix.toFixed(2);
-
-        const deleteCell = nouvelleLigne.insertCell(4);
-        const deleteButton = document.createElement('button');
-        deleteButton.className = 'delete-button';
-        deleteButton.textContent = 'Supprimer';
-        deleteButton.onclick = function() {
-            supprimerLigne(nouvelleLigne);
-        };
-        deleteCell.appendChild(deleteButton);
-
         // Réinitialiser les champs du formulaire
         document.getElementById('service').value = '';
         document.getElementById('description').value = '';
         document.getElementById('heures').value = '';
         document.getElementById('prix').value = '';
+
+        // Recharger la page pour mettre à jour l'aperçu
+        window.location.reload();
     } else {
         alert('Veuillez remplir tous les champs avec des valeurs valides.');
     }
 }
 
-function supprimerLigne(ligne) {
+function supprimerLigne(ligne, deleteDiv) {
     // Récupérer l'index de la ligne à supprimer
     const ligneIndex = ligne.rowIndex - 1; // -1 car rowIndex est basé sur l'index dans le tbody
 
@@ -83,6 +82,7 @@ function supprimerLigne(ligne) {
 
     // Supprimer la ligne de l'aperçu
     ligne.remove();
+    deleteDiv.remove();
 }
 
 function viderLocalStorage() {
@@ -98,7 +98,6 @@ function viderLocalStorage() {
     }).then(() => {
         window.location.reload();
     });
-
 }
 
 function newInvoice() {

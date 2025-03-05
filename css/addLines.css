@@ -13,24 +13,41 @@ label {
 .preview {
     margin-top: 20px;
     padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f9f9f9;
+    border: none; /* Enlever la bordure */
+    background-color: transparent; /* Enlever le fond */
 }
 
 .preview table {
     width: 100%;
     border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour effet Material Design */
+    border-radius: 8px; /* Coins arrondis */
+    overflow: hidden; /* Assurer que les coins arrondis sont appliqués */
 }
 
 .preview th, .preview td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    padding: 12px 15px;
     text-align: left;
 }
 
 .preview th {
-    background-color: #f2f2f2;
+    background-color: #292929; /* Couleur de fond pour l'en-tête */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+}
+
+.preview tr {
+    border-bottom: 1px solid #e0e0e0; /* Ligne de séparation */
+}
+
+.preview tr:last-child {
+    border-bottom: none; /* Enlever la ligne de séparation pour la dernière ligne */
+}
+
+.preview tr:hover {
+    background-color: #f1f1f1; /* Couleur de fond au survol */
 }
 
 .body {
@@ -66,24 +83,26 @@ textarea {
 }
 
 .delete-button {
-    background-color: #ff5733;
+    background: none;
     border: none;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
     cursor: pointer;
-    border-radius: 4px;
-    position: relative;
-    left: 10px;
-    top: 0;
+    padding: 0;
+    margin-left: 10px; /* Séparer visuellement du tableau */
 }
 
-.delete-button:hover {
-    background-color: #c0392b;
+.delete-button svg {
+    width: 36px; /* Agrandir le SVG */
+    height: 36px; /* Agrandir le SVG */
+    fill: #ff4d4d;
+}
+
+.delete-button:hover svg {
+    fill: #ff1a1a;
+}
+
+.delete-container {
+    display: inline-block;
+    margin-left: 10px;
 }
 
 .line-container {
