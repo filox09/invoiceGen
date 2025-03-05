@@ -22,7 +22,7 @@ html, body {
     border-radius: 8px; /* Material design border radius */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Material design shadow */
     width: 90%; /* Use relative width */
-    max-width: 900px; /* Set a maximum width */
+    max-width: 750px; /* Set a maximum width */
     box-sizing: border-box;
     max-height: 100%; /* Ensure the container does not exceed the viewport height */
     overflow: auto; /* Allow scrolling within the container if needed */

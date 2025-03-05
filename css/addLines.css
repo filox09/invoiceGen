@@ -63,7 +63,7 @@ label {
 
 .container {
     width: 100%;
-    max-width: 800px;
+    max-width: 500px;
     margin: 1em;
     padding: 30px; /* Ajusté pour correspondre au style Material Design */
     background-color: #ffffff;
