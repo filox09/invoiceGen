@@ -85,9 +85,27 @@ function ajouterLigne() {
         // Recharger la page pour mettre à jour l'aperçu
         window.location.reload();
     } else {
-        alert('Veuillez remplir tous les champs avec des valeurs valides.');
+        Swal.fire({
+            title: 'Erreur',
+            text: 'Veuillez remplir tous les champs avec des valeurs valides.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+            customClass: {
+                confirmButton: 'custom-swal-button'
+            }
+        });
     }
 }
+
+// Ajouter le style personnalisé pour le bouton SweetAlert2
+const style = document.createElement('style');
+style.innerHTML = `
+    .custom-swal-button {
+        background-color: #292929 !important;
+        color: white !important;
+    }
+`;
+document.head.appendChild(style);
 
 function supprimerLigne(ligne) {
     // Récupérer l'index de la ligne à supprimer
