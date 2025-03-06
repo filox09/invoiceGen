@@ -243,6 +243,13 @@ input[type="button"]:hover {
     background: #cecece;
 }
 
+#emptyMessage {
+    color: lightgray;
+    text-align: center;
+    font-size: 1.5em; /* Taille de texte plus grande */
+    margin-top: 300px; /* Marge supérieure pour centrer verticalement */
+}
+
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     .container, .containerRight {

@@ -4,6 +4,7 @@ window.onload = function() {
 
     // Récupérer le tbody du tableau d'aperçu
     const previewBody = document.getElementById('previewBody');
+    const emptyMessage = document.getElementById('emptyMessage');
 
     // Function to fetch SVG content
     function fetchSVG() {
@@ -15,6 +16,15 @@ window.onload = function() {
     function updateTotal() {
         const totalPrice = lignesDevis.reduce((total, ligne) => total + ligne.prix, 0);
         document.getElementById('totalPrice').textContent = `${totalPrice.toFixed(2)} €`;
+    }
+
+    // Function to check if the table is empty and show/hide the message
+    function checkEmptyTable() {
+        if (lignesDevis.length === 0) {
+            emptyMessage.style.display = 'block';
+        } else {
+            emptyMessage.style.display = 'none';
+        }
     }
 
     // Ajouter chaque ligne au tableau
@@ -44,6 +54,9 @@ window.onload = function() {
 
     // Initial update of the total price
     updateTotal();
+
+    // Check if the table is empty on load
+    checkEmptyTable();
 };
 
 function ajouterLigne() {
@@ -95,7 +108,6 @@ function supprimerLigne(ligne) {
     // Mettre à jour le total
     window.location.reload();
     updateTotal();
-    
 }
 
 function viderLocalStorage() {
@@ -103,7 +115,7 @@ function viderLocalStorage() {
     localStorage.clear();
     Swal.fire({
         title: 'Succès!',
-        text: 'Mémoire vidée avec succès!',
+        text: 'Réinitialisation réussie !',
         icon: 'success',
         draggable: true,
         showConfirmButton: false,

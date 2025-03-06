@@ -14,7 +14,7 @@
             <div class="containerLogo">
                 <img class="logo" src="assets/logo.png" alt="G9 DEVELOMENT" onclick="goToIndex()" width="100px">
             </div>
-            <h1>Ajouter des lignes</h1>
+            <h1>Ajouter des Services</h1>
             <form id="ligneForm">
                 <div class="form-group">
                     <label for="service">Service :</label>
@@ -32,8 +32,8 @@
                     <label for="prix">Prix :</label>
                     <input type="number" id="prix" name="prix" step="0.01">
                 </div>
-                <input type="button" value="Ajouter une ligne" onclick="ajouterLigne()">
-                <input type="button" value="Vider la mémoire" onclick="viderLocalStorage()">
+                <input type="button" value="Ajouter un service" onclick="ajouterLigne()">
+                <input type="button" value="Réinitialiser" onclick="viderLocalStorage()">
             </form>
         </div>
         <div class="container containerRight">
@@ -54,6 +54,14 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div id="containerRight">
+                <p id="emptyMessage" style="color: lightgray; text-align: center;">Commencez par ajouter un nouveau service.</p>
+                <table>
+                    <tbody id="previewBody">
+                        <!-- Les lignes seront ajoutées ici -->
+                    </tbody>
+                </table>
             </div>
             <div class="total-row">
                 <div class="total-label">Total HT</div>

@@ -72,7 +72,7 @@ function viderLocalStorage() {
     localStorage.clear();
     Swal.fire({
         title: 'Succès!',
-        text: 'Mémoire vidée avec succès!',
+        text: 'Réinitialisation réussie !',
         icon: 'success',
         draggable: true,
         showConfirmButton: false,
