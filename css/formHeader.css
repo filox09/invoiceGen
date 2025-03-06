@@ -70,7 +70,7 @@ label {
     font-size: 1em;
     width: 100%; /* Use relative width */
     max-width: 350px; /* Set a maximum width */
-    margin-left: 0px;
+
 }
 
 input[type="text"],
