@@ -20,6 +20,9 @@
                     <label for="devisName">Nom du Devis/Facture :</label>
                     <input type="text" id="devisName" name="devisName" placeholder="DEVIS XYZ DEVELOPMENT">
 
+                    <label for="devisNumero">N° DEVIS/FACTURE :</label>
+                    <input type="text" id="devisNumero" name="devisNumero" placeholder="DEVIS N° 25-02-9">
+
                     <label for="companyNomPrenom">Votre Nom et Prénom :</label>
                     <input type="text" id="companyNomPrenom" name="companyNomPrenom" placeholder="John DOE">
                     
@@ -38,8 +41,7 @@
                     <label for="companySiret">Votre N° SIRET :</label>
                     <input type="text" id="companySiret" name="companySiret" placeholder="12345678900012">
 
-                    <label for="logoUrl">URL de Votre Logo :</label>
-                    <input type="url" id="logoUrl" name="logoUrl" placeholder="https://example.com/logo.png">
+                   
                     
                     <div class="separator"></div>
 
@@ -48,8 +50,12 @@
                 </form>
                 
                 <form id="clientForm">
-                    <label for="devisNumero">N° DEVIS/FACTURE :</label>
-                    <input type="text" id="devisNumero" name="devisNumero" placeholder="DEVIS N° 25-02-9">
+
+                    <label for="logoUrl">URL de Votre Logo :</label>
+                    <input type="url" id="logoUrl" name="logoUrl" placeholder="https://example.com/logo.png">
+
+                    <label for="devisDate">Date du Devis/Facture :</label>
+                    <input type="date" id="devisDate" name="devisDate" value="2025-02-23" min="2025-01-01" max="2050-12-31" />
                     
                     <label for="nomPrenom">Nom et Prénom du Client :</label>
                     <input type="text" id="nomPrenom" name="nomPrenom" placeholder="Jane SMITH">
@@ -69,8 +75,6 @@
                     <label for="siret">N° SIRET du Client :</label>
                     <input type="text" id="siret" name="siret" placeholder="98765432100098">
             
-                    <label for="devisDate">Date du Devis/Facture :</label>
-                    <input type="date" id="devisDate" name="devisDate" value="2025-02-23" min="2025-01-01" max="2050-12-31" />
 
                     <div class="separator"></div>
 
