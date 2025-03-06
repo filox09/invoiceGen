@@ -87,7 +87,7 @@ function ajouterLigne() {
     } else {
         Swal.fire({
             title: 'Erreur',
-            text: 'Veuillez remplir tous les champs avec des valeurs valides.',
+            text: 'Veuillez renseigner tous les champs correctement.',
             icon: 'error',
             confirmButtonText: 'OK',
             customClass: {
