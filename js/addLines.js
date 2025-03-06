@@ -93,7 +93,9 @@ function supprimerLigne(ligne) {
     ligne.remove();
 
     // Mettre à jour le total
+    window.location.reload();
     updateTotal();
+    
 }
 
 function viderLocalStorage() {
