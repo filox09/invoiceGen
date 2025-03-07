@@ -333,7 +333,7 @@ input:checked + .slider:before {
 
 /* En-têtes */
 .dark-mode .devis table th {
-    background-color: #292929; /* Fond sombre pour l'en-tête */
+    background-color: #202020; /* Fond sombre pour l'en-tête */
     color: white !important; /* Texte de l'en-tête en blanc */
     text-transform: uppercase;
     font-size: 14px;
