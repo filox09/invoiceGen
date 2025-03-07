@@ -80,7 +80,6 @@ function viderLocalStorage() {
     }).then(() => {
         window.location.reload();
     });
-
 }
 
 function chargerDonnees() {
@@ -95,8 +94,18 @@ function chargerDonnees() {
 
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        const value = localStorage.getItem(key);
+        let value = localStorage.getItem(key);
 
+        // Vérifier si la valeur est un objet JSON stringifié
+        try {
+            const parsedValue = JSON.parse(value);
+            // Si la valeur est un objet ou tableau, on utilise le parsedValue
+            value = parsedValue;
+        } catch (e) {
+            // Si l'analyse échoue, cela signifie que la valeur est une simple chaîne
+        }
+
+        // Mettre la valeur dans le formulaire
         if (form1.elements[key]) {
             form1.elements[key].value = value;
         }

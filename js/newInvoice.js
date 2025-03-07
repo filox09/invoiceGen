@@ -1,25 +1,25 @@
 window.onload = function() {
 
-    // Récupérer les données du localStorage
-    const companyNomPrenom = localStorage.getItem('companyNomPrenom');
-    const companyNomEntreprise = localStorage.getItem('companyNomEntreprise');
-    const companyAdresse = localStorage.getItem('companyAdresse');
-    const companyEmail = localStorage.getItem('companyEmail');
-    const companyTva = localStorage.getItem('companyTva');
-    const companySiret = localStorage.getItem('companySiret');
-    const nomPrenom = localStorage.getItem('nomPrenom');
-    const nomEntreprise = localStorage.getItem('nomEntreprise');
-    const adresse = localStorage.getItem('adresse');
-    const email = localStorage.getItem('email');
-    const tva = localStorage.getItem('tva');
-    const siret = localStorage.getItem('siret');
-    const devisName = localStorage.getItem('devisName');
-    const devisNumero = localStorage.getItem('devisNumero');
+    // Récupérer les données du localStorage et les afficher sans guillemets
+    const companyNomPrenom = JSON.parse(localStorage.getItem('companyNomPrenom'));
+    const companyNomEntreprise = JSON.parse(localStorage.getItem('companyNomEntreprise'));
+    const companyAdresse = JSON.parse(localStorage.getItem('companyAdresse'));
+    const companyEmail = JSON.parse(localStorage.getItem('companyEmail'));
+    const companyTva = JSON.parse(localStorage.getItem('companyTva'));
+    const companySiret = JSON.parse(localStorage.getItem('companySiret'));
+    const nomPrenom = JSON.parse(localStorage.getItem('nomPrenom'));
+    const nomEntreprise = JSON.parse(localStorage.getItem('nomEntreprise'));
+    const adresse = JSON.parse(localStorage.getItem('adresse'));
+    const email = JSON.parse(localStorage.getItem('email'));
+    const tva = JSON.parse(localStorage.getItem('tva'));
+    const siret = JSON.parse(localStorage.getItem('siret'));
+    const devisName = JSON.parse(localStorage.getItem('devisName'));
+    const devisNumero = JSON.parse(localStorage.getItem('devisNumero'));
     const lignesDevis = JSON.parse(localStorage.getItem('lignesDevis')) || [];
-    const logoUrl = localStorage.getItem('logoUrl');
-    const devisDate = localStorage.getItem('devisDate');
-    const iban = localStorage.getItem('iban');
-    const bic = localStorage.getItem('bic');
+    const logoUrl = JSON.parse(localStorage.getItem('logoUrl'));
+    const devisDate = JSON.parse(localStorage.getItem('devisDate'));
+    const iban = JSON.parse(localStorage.getItem('iban'));
+    const bic = JSON.parse(localStorage.getItem('bic'));
 
     // Mettre à jour les informations dans le devis
     if (companyNomPrenom) document.getElementById('companyNomPrenom').textContent = companyNomPrenom;
@@ -87,6 +87,56 @@ function calculerTotal() {
         }
     });
     document.getElementById('totalAmount').textContent = total.toFixed(2) + ' €';
+}
+
+function importerJson() {
+    const input = document.getElementById('uploadJson');
+    const file = input.files[0];
+
+    if (!file) {
+        // Alerte SweetAlert2 pour indiquer l'absence de fichier
+        Swal.fire({
+            title: 'Erreur',
+            text: 'Veuillez sélectionner un fichier JSON.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        try {
+            const data = JSON.parse(event.target.result);
+
+            // Enregistrer les données dans le localStorage sans les convertir en chaîne JSON
+            Object.keys(data).forEach(key => {
+                // On stocke directement les objets, sans utiliser JSON.stringify
+                localStorage.setItem(key, JSON.stringify(data[key]));
+            });
+
+            // Alerte SweetAlert2 pour confirmer l'importation réussie
+            Swal.fire({
+                title: 'Succès',
+                text: 'Données importées avec succès !',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                location.reload(); // Recharger la page pour appliquer les nouvelles données
+            });
+        } catch (error) {
+            // Alerte SweetAlert2 pour indiquer une erreur lors de la lecture du fichier JSON
+            Swal.fire({
+                title: 'Erreur',
+                text: 'Erreur lors de la lecture du fichier JSON.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+            console.error(error);
+        }
+    };
+
+    reader.readAsText(file);
 }
 
 function allerAuBackOffice() {

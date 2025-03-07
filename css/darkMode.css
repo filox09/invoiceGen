@@ -240,7 +240,11 @@ input:checked + .slider:before {
 }
 
 /* Titres en mode sombre */
-.dark-mode h1, a {
+.dark-mode h1 {
+    color: #ffffff !important;
+}
+
+.dark-mode a {
     color: #ffffff !important;
 }
 
@@ -376,4 +380,8 @@ input:checked + .slider:before {
 /* Image en mode sombre */
 .dark-mode .logo, .dark-mode #logoAdd {
     filter: brightness(0) invert(1); /* Applique un filtre pour transformer l'image en blanc */
+}
+
+.dark-mode .upload-container {
+    background-color: #333;
 }
