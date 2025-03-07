@@ -169,7 +169,7 @@ input:checked + .slider:before {
 }
 
 /* Total HT en gris clair */
-.dark-mode .total-label {
+.dark-mode .total-label, h4 {
     color: #bbb !important; /* Total HT en gris clair */
 }
 
@@ -239,7 +239,7 @@ input:checked + .slider:before {
 }
 
 /* Titres en mode sombre */
-.dark-mode h1 {
+.dark-mode h1, a {
     color: #ffffff !important;
 }
 
@@ -316,4 +316,58 @@ input:checked + .slider:before {
 .dark-mode strong, 
 .dark-mode span {
     color: #fff !important;
+}
+
+.devis table th, .devis table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #555; /* Changer la couleur de la bordure pour mieux contraster en mode sombre */
+    text-align: left;
+    color: #e0e0e0; /* Texte en blanc/gris clair pour les lignes */
+}
+
+/* Mode sombre - texte blanc dans les lignes */
+.dark-mode .devis table th,
+.dark-mode .devis table td {
+    color: #e0e0e0; /* Blanc pour le texte */
+}
+
+/* En-têtes */
+.devis table th {
+    background-color: #292929; /* Fond sombre pour l'en-tête */
+    color: white !important; /* Texte de l'en-tête en blanc */
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+}
+
+.devis table tr:nth-child(even) {
+    background-color: #333; /* Fond plus sombre pour les lignes paires */
+}
+
+.devis table tr:nth-child(odd) {
+    background-color: #444; /* Fond pour les lignes impaires */
+}
+
+.devis table tr:hover {
+    background-color: #555; /* Fond plus clair pour le survol */
+}
+
+.devis table th:nth-child(3), .devis table td:nth-child(3), .devis table th:nth-child(4), .devis table td:nth-child(4) {
+    width: 10%; /* Réduit la largeur de la colonne "Durée" */
+    text-align: center;
+}
+
+/* Style du bouton en mode sombre */
+.dark-mode #print-btn {
+ 
+    background-color: #444; /* Fond plus clair */
+    color: #4CAF50; /* Texte vert au survol */
+    border: 2px solid #4CAF50; /* Bordure verte au survol */
+}
+
+/* Effet au survol du bouton en mode sombre */
+.dark-mode #print-btn:hover {
+    background-color: #333; /* Fond sombre pour le bouton */
+    border: 2px solid #444; /* Bordure plus sombre */
+    color: #e0e0e0; /* Texte en gris clair pour contraster */
 }
