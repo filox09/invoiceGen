@@ -7,9 +7,17 @@
     <link rel="stylesheet" href="css/addLines.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/darkMode.css"> <!-- Link to the darkMode.css CSS -->
 </head>
 <body>
     <div class="body">
+        <div class="dark-mode-toggle">
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider"></span>
+            </label>
+            <span class="toggle-text">Mode Sombre</span>
+        </div> 
         <div class="container">
             <div class="containerLogo">
                 <img class="logo" src="assets/logo.png" alt="G9 DEVELOMENT" onclick="goToIndex()" width="100px">
@@ -69,6 +77,7 @@
             </div>
         </div>
     </div>
+    <script src="js/darkMode.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/addLines.js"></script>
 </body>

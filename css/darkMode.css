@@ -1,0 +1,319 @@
+/* Mode Sombre Unifié pour les deux pages */
+
+/* 🌓 Toggle Switch - Placé en haut à droite */
+.dark-mode-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.toggle-text {
+    font-size: 0.9em;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bbb;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #444;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* 🌙 Mode Sombre Unifié */
+.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .container {
+    background-color: #2a2a2a !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode h1,
+.dark-mode .logo,
+.dark-mode .toggle-text {
+    color: #fff !important;
+}
+.dark-mode .title {
+    color: #fff !important;;
+}
+.dark-mode label {
+    color: #ccc !important;
+}
+
+/* Champs de saisie */
+.dark-mode input[type="text"],
+.dark-mode input[type="email"],
+.dark-mode input[type="url"],
+.dark-mode input[type="date"],
+.dark-mode input[type="number"],
+.dark-mode textarea {
+    background-color: #3a3a3a !important;
+    color: #fff !important;
+    border: 1px solid #555 !important;
+    padding: 10px !important;
+    border-radius: 4px !important;
+    font-size: 1em !important;
+    width: calc(100% - 2em) !important; /* Ajustement de la largeur */
+    box-sizing: border-box !important;
+    transition: border-color 0.3s, box-shadow 0.3s !important;
+}
+
+/* Focus sur les champs */
+.dark-mode input[type="text"]:focus,
+.dark-mode input[type="email"]:focus,
+.dark-mode input[type="url"]:focus,
+.dark-mode input[type="date"]:focus,
+.dark-mode input[type="number"]:focus,
+.dark-mode textarea:focus {
+    border-color: #6200ea !important;
+    box-shadow: 0 0 0 2px rgba(98, 0, 234, 0.2) !important;
+}
+
+/* Boutons */
+.dark-mode input[type="button"]{
+    background-color: #444 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+}
+
+.dark-mode .form-header-button  {
+    background-color: #444 !important;
+}
+
+.dark-mode input[type="button"]:hover {
+    background-color: #555 !important;
+}
+
+/* Séparateur */
+.dark-mode .separator {
+    border-top: 1px solid #555 !important;
+}
+
+/* Modification du style des barres de défilement */
+.dark-mode .formulaire::-webkit-scrollbar-thumb {
+    background: #888 !important;
+}
+
+.dark-mode .formulaire::-webkit-scrollbar-thumb:hover {
+    background: #ccc !important;
+}
+
+
+
+/* Survol des lignes du tableau */
+.dark-mode .preview tr {
+    border-bottom: 1px solid #dddddd !important; /* Bordure des lignes */
+}
+
+.dark-mode .preview th,
+.dark-mode .preview td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.dark-mode .preview th {
+    background-color: #333 !important; /* En-tête du tableau en fond sombre */
+    color: #fff !important; /* Texte de l'en-tête en blanc */
+}
+
+/* Survol du tableau dans le mode sombre (plus clair) */
+.dark-mode .preview tr:hover {
+    background-color: #555 !important; /* Fond plus clair pour le survol */
+}
+
+/* Total HT en gris clair */
+.dark-mode .total-label {
+    color: #bbb !important; /* Total HT en gris clair */
+}
+
+/* Ajustement des barres de défilement pour textarea et inputs */
+.dark-mode textarea::-webkit-scrollbar,
+.dark-mode input[type="text"]::-webkit-scrollbar,
+.dark-mode input[type="email"]::-webkit-scrollbar,
+.dark-mode input[type="number"]::-webkit-scrollbar {
+    width: 10px !important;
+}
+
+.dark-mode textarea::-webkit-scrollbar-thumb,
+.dark-mode input[type="text"]::-webkit-scrollbar-thumb,
+.dark-mode input[type="email"]::-webkit-scrollbar-thumb,
+.dark-mode input[type="number"]::-webkit-scrollbar-thumb {
+    background: #555 !important;
+    border-radius: 10px !important;
+}
+
+.dark-mode textarea::-webkit-scrollbar-thumb:hover,
+.dark-mode input[type="text"]::-webkit-scrollbar-thumb:hover,
+.dark-mode input[type="email"]::-webkit-scrollbar-thumb:hover,
+.dark-mode input[type="number"]::-webkit-scrollbar-thumb:hover {
+    background: #888 !important;
+}
+
+/* 📱 Responsive */
+@media (max-width: 1024px) {
+    .dark-mode h1 {
+        font-size: 1.8em !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .dark-mode .container {
+        padding: 20px !important;
+    }
+
+    .dark-mode label {
+        width: 100% !important;
+    }
+
+    .dark-mode .formulaire {
+        flex-wrap: wrap !important;
+    }
+
+    .dark-mode .logo {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .dark-mode .separator {
+        display: none !important;
+    }
+}
+
+/* Appliquer le fond sombre et la couleur du texte clair */
+.dark-mode .body {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Fond de la container en mode sombre */
+.dark-mode .container {
+    background-color: #2a2a2a !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Titres en mode sombre */
+.dark-mode h1 {
+    color: #ffffff !important;
+}
+
+/* Labels en mode sombre */
+.dark-mode label {
+    color: #ccc !important;
+}
+
+/* Inputs en mode sombre */
+.dark-mode input[type="text"],
+.dark-mode input[type="email"],
+.dark-mode input[type="url"],
+.dark-mode input[type="date"] {
+    background-color: #333 !important;
+    color: #fff !important;
+    border: 1px solid #555 !important;
+}
+
+/* Boutons en mode sombre */
+.dark-mode input[type="button"] {
+    background-color: #444 !important;
+    color: #fff !important;
+}
+
+/* Bouton hover en mode sombre */
+.dark-mode input[type="button"]:hover {
+    background-color: #555 !important;
+}
+
+/* Séparateur en mode sombre */
+.dark-mode .separator {
+    border-top: 1px solid #555 !important;
+}
+
+/* Survol des éléments de formulaire en mode sombre */
+.dark-mode input[type="text"]:focus,
+.dark-mode input[type="email"]:focus,
+.dark-mode input[type="url"]:focus,
+.dark-mode input[type="date"]:focus {
+    border-color: #6200ea !important;
+    box-shadow: 0 0 0 2px rgba(98, 0, 234, 0.2) !important;
+}
+
+/* Ajustement des barres de défilement dans le mode sombre */
+.dark-mode .formulaire::-webkit-scrollbar-thumb {
+    background: #555 !important;
+}
+
+.dark-mode .formulaire::-webkit-scrollbar-thumb:hover {
+    background: #888 !important;
+}
+
+/* Responsive Design - Ajustements pour le mode sombre */
+@media (max-width: 768px) {
+    .dark-mode .container {
+        padding: 20px !important;
+    }
+
+    .dark-mode .logo {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .dark-mode h1 {
+        font-size: 1.5em !important;
+    }
+
+    .dark-mode .separator {
+        display: none !important;
+    }
+}
+
+/* Strong et Span en mode sombre */
+.dark-mode strong, 
+.dark-mode span {
+    color: #fff !important;
+}

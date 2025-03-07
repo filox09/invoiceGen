@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/newInvoice.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/darkMode.css">
     <title>inVoice Generator - DEVIS/FACTURE</title>
 </head>
 <body>
+    <div class="dark-mode-toggle">
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider"></span>
+        </label>
+        <span class="toggle-text">Mode Sombre</span>
+    </div>   
     <div class="container">
         <div class="header">
             <h1>
@@ -73,6 +81,7 @@
         </footer>
         <button id="print-btn">Imprimer en PDF</button>
     </div>
+    <script src="js/darkMode.js"></script>
     <script src="js/newInvoice.js"></script>
 </body>
 </html>

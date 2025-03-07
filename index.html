@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css"> <!-- Link to the index.css CSS -->
+    <link rel="stylesheet" href="css/darkMode.css"> <!-- Link to the darkMode.css CSS -->
+    
     <title>inVoice Generator - Accueil</title>
 </head>
 <body>
+    <div class="dark-mode-toggle">
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider"></span>
+        </label>
+        <span class="toggle-text">Mode Sombre</span>
+    </div>   
     <div class="container">
         <img src="assets/logo.png" alt="XYZ DEVELOPMENT" class="logo">
         <div class="title">Invoice Generator</div>
@@ -19,5 +28,6 @@
             <!-- Add more buttons here for other pages -->
         </div>
     </div>
+    <script src="js/darkMode.js"></script> <!-- Link to the dark-mode.js JavaScript -->   
 </body>
 </html>

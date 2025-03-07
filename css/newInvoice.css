@@ -183,6 +183,9 @@ footer {
     #print-btn {
         display: none;
     }
+    .dark-mode-toggle {
+        display: none !important; /* Cacher le switch de dark mode */
+    }
     @page {
         margin: 0;
     }
