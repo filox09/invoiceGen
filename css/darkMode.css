@@ -362,21 +362,6 @@ input:checked + .slider:before {
     text-align: center;
 }
 
-/* Style du bouton en mode sombre */
-.dark-mode #print-btn {
- 
-    background-color: #444; /* Fond plus clair */
-    color: #4CAF50; /* Texte vert au survol */
-    border: 2px solid #4CAF50; /* Bordure verte au survol */
-}
-
-/* Effet au survol du bouton en mode sombre */
-.dark-mode #print-btn:hover {
-    background-color: #333; /* Fond sombre pour le bouton */
-    border: 2px solid #444; /* Bordure plus sombre */
-    color: #e0e0e0; /* Texte en gris clair pour contraster */
-}
-
 /* Image en mode sombre */
 .dark-mode .logo, .dark-mode #logoAdd {
     filter: brightness(0) invert(1); /* Applique un filtre pour transformer l'image en blanc */
@@ -384,4 +369,26 @@ input:checked + .slider:before {
 
 .dark-mode .upload-container {
     background-color: #333;
+}
+
+/* Label pour l'input file */
+.dark-mode .file-label {
+    background-color: #045c13;
+    color: #fff !important;
+}
+
+.dark-mode .file-label:hover {
+    background-color: #0c8012;
+}
+
+
+/* Bouton d'importation */
+
+.dark-mode .md-button,.dark-mode #print-btn, .dark-mode #save-json-btn {
+    background-color: #055f56;
+    color: #fff;
+}
+
+.dark-mode .md-button:hover, .dark-mode #print-btn:hover, .dark-mode #save-json-btn:hover {
+    background-color: #018786;
 }
