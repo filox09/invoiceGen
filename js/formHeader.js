@@ -125,3 +125,5 @@ function chargerDonnees() {
 }
 
 document.addEventListener('DOMContentLoaded', chargerDonnees);
+
+console.log(localStorage);

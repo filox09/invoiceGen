@@ -1,25 +1,24 @@
 window.onload = function() {
-
     // Récupérer les données du localStorage et les afficher sans guillemets
-    const companyNomPrenom = JSON.parse(localStorage.getItem('companyNomPrenom'));
-    const companyNomEntreprise = JSON.parse(localStorage.getItem('companyNomEntreprise'));
-    const companyAdresse = JSON.parse(localStorage.getItem('companyAdresse'));
-    const companyEmail = JSON.parse(localStorage.getItem('companyEmail'));
-    const companyTva = JSON.parse(localStorage.getItem('companyTva'));
-    const companySiret = JSON.parse(localStorage.getItem('companySiret'));
-    const nomPrenom = JSON.parse(localStorage.getItem('nomPrenom'));
-    const nomEntreprise = JSON.parse(localStorage.getItem('nomEntreprise'));
-    const adresse = JSON.parse(localStorage.getItem('adresse'));
-    const email = JSON.parse(localStorage.getItem('email'));
-    const tva = JSON.parse(localStorage.getItem('tva'));
-    const siret = JSON.parse(localStorage.getItem('siret'));
-    const devisName = JSON.parse(localStorage.getItem('devisName'));
-    const devisNumero = JSON.parse(localStorage.getItem('devisNumero'));
-    const lignesDevis = JSON.parse(localStorage.getItem('lignesDevis')) || [];
-    const logoUrl = JSON.parse(localStorage.getItem('logoUrl'));
-    const devisDate = JSON.parse(localStorage.getItem('devisDate'));
-    const iban = JSON.parse(localStorage.getItem('iban'));
-    const bic = JSON.parse(localStorage.getItem('bic'));
+    const companyNomPrenom = localStorage.getItem('companyNomPrenom');
+    const companyNomEntreprise = localStorage.getItem('companyNomEntreprise');
+    const companyAdresse = localStorage.getItem('companyAdresse');
+    const companyEmail = localStorage.getItem('companyEmail');
+    const companyTva = localStorage.getItem('companyTva');
+    const companySiret = localStorage.getItem('companySiret');
+    const nomPrenom = localStorage.getItem('nomPrenom');
+    const nomEntreprise = localStorage.getItem('nomEntreprise');
+    const adresse = localStorage.getItem('adresse');
+    const email = localStorage.getItem('email');
+    const tva = localStorage.getItem('tva');
+    const siret = localStorage.getItem('siret');
+    const devisName = localStorage.getItem('devisName');
+    const devisNumero = localStorage.getItem('devisNumero');
+    const lignesDevis = JSON.parse(localStorage.getItem('lignesDevis')) || [];  // ici tu as un tableau
+    const logoUrl = localStorage.getItem('logoUrl');
+    const devisDate = localStorage.getItem('devisDate');
+    const iban = localStorage.getItem('iban');
+    const bic = localStorage.getItem('bic');
 
     // Mettre à jour les informations dans le devis
     if (companyNomPrenom) document.getElementById('companyNomPrenom').textContent = companyNomPrenom;
@@ -109,10 +108,18 @@ function importerJson() {
         try {
             const data = JSON.parse(event.target.result);
 
-            // Enregistrer les données dans le localStorage sans les convertir en chaîne JSON
+            // Enregistrer les données dans le localStorage sans ajouter de guillemets superflus
             Object.keys(data).forEach(key => {
-                // On stocke directement les objets, sans utiliser JSON.stringify
-                localStorage.setItem(key, JSON.stringify(data[key]));
+                const value = data[key];
+                
+                // Vérifier si la valeur est une chaîne de caractères déjà
+                if (typeof value === 'string') {
+                    // Enregistrer dans le localStorage directement sans ajouter de guillemets
+                    localStorage.setItem(key, value);
+                } else {
+                    // Si ce n'est pas une chaîne, stocker comme un objet JSON
+                    localStorage.setItem(key, JSON.stringify(value));
+                }
             });
 
             // Alerte SweetAlert2 pour confirmer l'importation réussie
@@ -140,6 +147,7 @@ function importerJson() {
     reader.readAsText(file);
 }
 
+
 // Fonction pour rediriger vers index.html
 function goToIndex() {
     window.location.href = 'index.html';
@@ -154,7 +162,7 @@ function enregistrerJson() {
     
     const data = {};
     keys.forEach(key => {
-        data[key] = JSON.parse(localStorage.getItem(key));
+        data[key] = localStorage.getItem(key); // Utilisation de getItem() pour récupérer les données brutes
     });
 
     // Générer un nom de fichier dynamique : "TitreDuDevis-NuméroDevis.json"
