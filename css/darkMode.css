@@ -169,7 +169,7 @@ input:checked + .slider:before {
 }
 
 /* Total HT en gris clair */
-.dark-mode .total-label, h4 {
+.dark-mode .total-label,.dark-mode h4 {
     color: #bbb !important; /* Total HT en gris clair */
 }
 
@@ -318,7 +318,7 @@ input:checked + .slider:before {
     color: #fff !important;
 }
 
-.dark-mode .devis table th, .devis table td {
+.dark-mode .devis table th,.dark-mode .devis table td {
     padding: 12px 15px;
     border-bottom: 1px solid #555; /* Changer la couleur de la bordure pour mieux contraster en mode sombre */
     text-align: left;
