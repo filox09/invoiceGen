@@ -225,9 +225,6 @@ input[type="button"]:hover {
     overflow-y: auto;
 }
 
-.preview-container::-webkit-scrollbar {
-    width: 10px;
-}
 
 .preview-container::-webkit-scrollbar-track {
     background: #f1f1f1;

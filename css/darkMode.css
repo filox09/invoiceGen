@@ -101,6 +101,7 @@ input:checked + .slider:before {
     width: calc(100% - 2em) !important; /* Ajustement de la largeur */
     box-sizing: border-box !important;
     transition: border-color 0.3s, box-shadow 0.3s !important;
+    width: 100% !important;
 }
 
 /* Focus sur les champs */
