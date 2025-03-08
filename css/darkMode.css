@@ -155,7 +155,7 @@ input:checked + .slider:before {
 
 .dark-mode .preview th,
 .dark-mode .preview td {
-    padding: 12px 15px;
+    padding: 6px 6px;
     text-align: center;
 }
 
@@ -324,7 +324,7 @@ input:checked + .slider:before {
 }
 
 .dark-mode .devis table th,.dark-mode .devis table td {
-    padding: 12px 15px;
+    padding: 6px 6px;
     border-bottom: 1px solid #555; /* Changer la couleur de la bordure pour mieux contraster en mode sombre */
     text-align: left;
     color: #e0e0e0; /* Texte en blanc/gris clair pour les lignes */
