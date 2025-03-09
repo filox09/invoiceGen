@@ -1,6 +1,6 @@
 /* Mode Sombre Unifié pour les deux pages */
 
-/* 🌓 Toggle Switch - Placé en haut à droite */
+/* 🌓 Toggle Switch - Placé en haut à droite 
 .dark-mode-toggle {
     position: fixed;
     top: 15px;
@@ -53,6 +53,158 @@
     transition: 0.4s;
     border-radius: 50%;
 }
+SUPPRIMER POUR SIDE BAR */
+
+/* Style pour le bouton du menu burger */
+.burger-menu {
+    display: inline-block;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+}
+
+.burger-icon, .close-icon {
+    fill: none;
+    stroke: #292929;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.close-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* Transformation du menu burger en croix */
+.change .burger-icon {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.change .close-icon {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Barre latérale */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: width 0.5s;
+    padding-top: 60px;
+    white-space: nowrap; /* Empêche le retour à la ligne */
+}
+
+.sidebar a {
+    
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.dark-mode-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+.dark-mode-toggle .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.dark-mode-toggle .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.dark-mode-toggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.dark-mode-toggle .slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.dark-mode-toggle input:checked + .slider {
+    background-color: #5e5e5e;
+}
+
+.dark-mode-toggle input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Mode sombre */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode .container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+.dark-mode .burger-icon  {
+    filter: invert(1);
+}
+
+.dark-mode .sidebar {
+    background-color: #333;
+}
+
+.dark-mode .sidebar a {
+    color: #e0e0e0;
+}
+
+.dark-mode .sidebar a:hover {
+    background-color: #575757;
+}
+
+.dark-mode .dark-mode-toggle {
+    color: #e0e0e0;
+}
 
 input:checked + .slider {
     background-color: #444;
@@ -60,6 +212,65 @@ input:checked + .slider {
 
 input:checked + .slider:before {
     transform: translateX(26px);
+}
+
+/* bouton json et print */
+
+/* Conteneur de l'upload */
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    bottom: 60px;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Input caché */
+.file-input {
+    display: none;
+}
+
+/* Label pour l'input file */
+.file-label {
+    background-color: #6200ea;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    display: inline-block;
+    text-align: center;
+   
+}
+
+.file-label:hover {
+    background-color: #3700b3;
+}
+
+/* Bouton d'importation */
+.md-button, #print-btn, #save-json-btn {
+    background-color: #03dac6;
+    color: black;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: inline-block;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    
+}
+
+.md-button:hover, #print-btn:hover, #save-json-btn:hover {
+    background-color: #018786;
 }
 
 /* 🌙 Mode Sombre Unifié */

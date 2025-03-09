@@ -152,66 +152,8 @@ footer {
     gap: 5px; /* Petit espace entre "Le" et l'input */
 }
 
-/* Conteneur de l'upload */
-.upload-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: white;
-    padding: 10px 16px;
-    border-radius: 3px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Input caché */
-.file-input {
-    display: none;
-}
-
-/* Label pour l'input file */
-.file-label {
-    background-color: #6200ea;
-    color: white;
-    padding: 5px 8px;
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 500;
-    transition: 0.3s ease;
-    display: inline-block;
-    text-align: center;
-}
-
-.file-label:hover {
-    background-color: #3700b3;
-}
-
-/* Bouton d'importation */
-.md-button, #print-btn, #save-json-btn {
-    background-color: #03dac6;
-    color: black;
-    border: none;
-    padding: 5px 8px;
-    border-radius: 2px;
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.md-button:hover, #print-btn:hover, #save-json-btn:hover {
-    background-color: #018786;
-}
-
 @media print {
-    #print-btn, .upload-container {
+    #print-btn, .upload-container, .sidebar {
         display: none;
     }
     .dark-mode-toggle {

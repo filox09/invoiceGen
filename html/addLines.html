@@ -11,13 +11,36 @@
 </head>
 <body>
     <div class="body">
-        <div class="dark-mode-toggle">
-            <label class="switch">
-                <input type="checkbox" id="darkModeToggle">
-                <span class="slider"></span>
-            </label>
-            <span class="toggle-text">Mode Sombre</span>
-        </div> 
+        <!-- Bouton du menu burger -->
+        <div class="burger-menu" onclick="toggleSidebar(this)">
+            <svg class="burger-icon" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M3 6h18M3 12h18M3 18h18" stroke="#292929" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <svg class="close-icon" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M6 6l12 12M6 18L18 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+            </svg>
+        </div>
+
+        <!-- Barre latérale -->
+        <div id="sidebar" class="sidebar">
+            <div class="dark-mode-toggle">
+                <span class="toggle-text">Mode Sombre</span>
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <a href="newInvoice.html">Aperçu de la Facture / Devis</a>
+            <a href="formulaire.html">Modification des Informations</a>
+            <a href="addLines.html">Ajouter des Services</a>
+            <div class="upload-container">
+                <input type="file" id="uploadJson" accept=".json" class="file-input">
+                <label for="uploadJson" class="file-label">📂 Choisir un fichier JSON</label>
+                <button class="md-button" onclick="importerJson()">📥 Importer JSON</button>
+                <button id="save-json-btn">💾 Enregistrer en JSON</button>
+                <button id="print-btn">📄 Imprimer en PDF</button>
+            </div>
+        </div>
         <div class="container">
             <div class="containerLogo">
                 <img class="logo" src="../assets/logo.png" alt="G9 DEVELOMENT" onclick="goToIndex()" width="100px">
