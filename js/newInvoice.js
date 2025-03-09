@@ -72,7 +72,8 @@ function goToIndex() {
 
 function importerJson() {
     const file = document.getElementById('uploadJson').files[0];
-    if (!file) return Swal.fire('Erreur', 'Veuillez sélectionner un fichier JSON.', 'error');
+    if (!file) return Swal.fire({ title: "Erreur", text: "Veuillez sélectionner un fichier JSON.", icon: "error", showConfirmButton: false, timer: 2000 });
+
     
     const reader = new FileReader();
     reader.onload = event => {

@@ -392,3 +392,15 @@ input:checked + .slider:before {
 .dark-mode .md-button:hover, .dark-mode #print-btn:hover, .dark-mode #save-json-btn:hover {
     background-color: #018786;
 }
+
+.dark-mode .swal2-popup {
+    background: #1e1e1e !important;
+    color: #ffffff !important;
+  }
+  .dark-mode .swal2-title,
+  .dark-mode .swal2-content {
+    color: #ffffff !important;
+  }
+  .dark-mode .swal2-confirm {
+    background-color: #444 !important;
+  }
