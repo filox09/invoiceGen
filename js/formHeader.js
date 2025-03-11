@@ -12,23 +12,11 @@ function enregistrerDonnees() {
     });
 
     Swal.fire({
-        title: 'Succès!',
-        text: 'Données enregistrées avec succès!',
+        title: 'Données enregistrées !',
         icon: 'success',
         showConfirmButton: false,
-        timer: 1000
+        timer: 2000
     });
-}
-
-function viderLocalStorage() {
-    localStorage.clear();
-    Swal.fire({
-        title: 'Succès!',
-        text: 'Réinitialisation réussie !',
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 1000
-    }).then(() => window.location.reload());
 }
 
 function chargerDonnees() {
@@ -50,9 +38,3 @@ function chargerDonnees() {
 }
 
 document.addEventListener('DOMContentLoaded', chargerDonnees);
-
-typeRedirect = page => window.location.href = `${page}.html`;
-
-const addLines = () => typeRedirect('../html/addLines');
-const newInvoice = () => typeRedirect('../html/newInvoice');
-const goToIndex = () => typeRedirect('../index');

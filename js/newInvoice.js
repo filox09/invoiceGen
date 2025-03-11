@@ -66,7 +66,3 @@ function calculerTotal() {
     document.getElementById('totalAmount').textContent = `${total.toFixed(2)} €`;
 }
 
-function goToIndex() {
-    window.location.href = '../index.html';
-}
-

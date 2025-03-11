@@ -152,24 +152,3 @@ footer {
     gap: 5px; /* Petit espace entre "Le" et l'input */
 }
 
-@media print {
-    #print-btn, .upload-container, .sidebar {
-        display: none;
-    }
-    .dark-mode-toggle {
-        display: none !important; /* Cacher le switch de dark mode */
-    }
-    @page {
-        margin: 0;
-    }
-    body {
-        margin: 10px;
-    }
-    .container {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border: none;
-        box-shadow: none;
-    }
-}

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inVoice Generator - Ajouter des Lignes</title>
-    <link rel="stylesheet" href="../css/addLines.css">
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/darkMode.css"> <!-- Link to the darkMode.css CSS -->
+    <link rel="stylesheet" href="../css/addLines.css">
 </head>
 <body>
     <div class="body">
@@ -30,13 +31,15 @@
                     <span class="slider"></span>
                 </label>
             </div>
-            <a href="newInvoice.html">Aperçu de la Facture / Devis</a>
-            <a href="formulaire.html">Modification des Informations</a>
-            <a href="addLines.html">Ajouter des Services</a>
+            <a onclick="goToIndex()">🏠 ┃ Accueil</a>
+            <a onclick="newInvoice()">🔍 ┃ Aperçu de la Facture / Devis</a>
+            <a onclick="formHeader()">✏️ ┃ Modification des Informations</a>
+            <a onclick="addLines()">➕ ┃ Ajouter des Services</a>
             <div class="upload-container">
                 <input type="file" id="uploadJson" accept=".json" class="file-input">
                 <label for="uploadJson" class="file-label">📂 Choisir un fichier JSON</label>
                 <button class="md-button" onclick="importerJson()">📥 Importer JSON</button>
+                <button class="md-button" id="reinitialisation">🗑️ Réinitialiser</button>
                 <button id="save-json-btn">💾 Enregistrer en JSON</button>
                 <button id="print-btn">📄 Imprimer en PDF</button>
             </div>
@@ -64,7 +67,6 @@
                     <input type="number" id="prix" name="prix" step="0.01">
                 </div>
                 <input type="button" value="Ajouter un service" onclick="ajouterLigne()">
-                <input type="button" value="Réinitialiser" onclick="viderLocalStorage()">
             </form>
         </div>
         <div class="container containerRight">
@@ -73,7 +75,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Service</th>
+                                <th  style="padding: 1em;">Service</th>
                                 <th>Description</th>
                                 <th style="width: 5%;">Heures</th>
                                 <th style="width: 10%;">Prix</th>

@@ -1,59 +1,7 @@
 /* Mode Sombre Unifié pour les deux pages */
 
-/* 🌓 Toggle Switch - Placé en haut à droite 
-.dark-mode-toggle {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 1000;
-}
+/* 🌓 Toggle Switch - Placé en haut à droite */
 
-.toggle-text {
-    font-size: 0.9em;
-    color: #333;
-    transition: color 0.3s;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 24px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #bbb;
-    transition: 0.4s;
-    border-radius: 24px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 4px;
-    bottom: 3px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-}
-SUPPRIMER POUR SIDE BAR */
 
 /* Style pour le bouton du menu burger */
 .burger-menu {
@@ -91,33 +39,52 @@ SUPPRIMER POUR SIDE BAR */
 }
 
 /* Barre latérale */
+/* Sidebar */
 .sidebar {
     height: 100%;
-    width: 0;
+    width: 250px; /* Largeur fixe */
     position: fixed;
     z-index: 999;
     top: 0;
-    left: 0;
+    left: -250px; /* Cachée hors écran */
     background-color: #111;
     overflow-x: hidden;
-    transition: width 0.5s;
-    padding-top: 60px;
-    white-space: nowrap; /* Empêche le retour à la ligne */
+    transition: transform 0.7s ease-in-out; /* Animation plus lente et plus fluide */
+    padding-top: 60px;  
 }
 
+/* Lorsque la sidebar est ouverte */
+.sidebar.open {
+    transform: translateX(250px); /* Déplacement vers la droite */
+    transition: transform 0.7s ease-in-out; /* Animation plus lente et plus fluide */
+}
+
+
+
+/* Animation des liens */
 .sidebar a {
-    
     padding: 10px 15px;
     text-decoration: none;
-    font-size: 20px;
+    cursor: pointer;
+    font-size: 18px;
     color: white;
     display: block;
-    transition: 0.3s;
+    opacity: 0; /* Cachés par défaut */
+    transition: opacity 0.5s ease-in-out;
 }
 
-.sidebar a:hover {
-    background-color: #575757;
+/* Lorsque la sidebar est ouverte, les liens apparaissent */
+.sidebar.open a {
+    opacity: 1;
 }
+
+/* Masquer les liens lorsque la sidebar est fermée */
+.sidebar:not(.open) a {
+    opacity: 0;
+  
+}
+
+
 
 .dark-mode-toggle {
     position: absolute;
@@ -239,7 +206,7 @@ input:checked + .slider:before {
     padding: 5px 8px;
     border-radius: 2px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 500;
     transition: 0.3s ease;
     display: inline-block;
@@ -258,19 +225,47 @@ input:checked + .slider:before {
     border: none;
     padding: 5px 8px;
     border-radius: 2px;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
     transition: 0.3s ease;
-    display: inline-block;
-    align-items: center;
     gap: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     
 }
 
+#reinitialisation {
+    background-color: rgb(184, 3, 3);
+}
+
+#reinitialisation:hover {
+    background-color: rgb(95, 0, 0);
+}
+
 .md-button:hover, #print-btn:hover, #save-json-btn:hover {
     background-color: #018786;
+}
+
+@media print {
+    #print-btn, .upload-container, .sidebar, .close-icon {
+        display: none;
+    }
+    .dark-mode-toggle {
+        display: none !important; /* Cacher le switch de dark mode */
+    }
+    @page {
+        margin: 0;
+    }
+    body {
+        margin: 10px;
+    }
+    .container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+    }
 }
 
 /* 🌙 Mode Sombre Unifié */
