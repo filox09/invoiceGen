@@ -83,12 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("print-btn").addEventListener("click", () => window.print());
     document.getElementById("save-json-btn").addEventListener("click", enregistrerJson);
 
-    const basePath = window.location.pathname.split("/").slice(0, -1).join("/");
+    const basePath = window.location.origin + window.location.pathname.split("/").slice(0, -1).join("/");
     const typeRedirect = page => window.location.href = `${basePath}/${page}.html`;
-    window.formHeader = () => typeRedirect("/html/formulaire");
-    window.addLines = () => typeRedirect("/html/addLines");
-    window.newInvoice = () => typeRedirect("/html/newInvoice");
-    window.goToIndex = () => typeRedirect("/index");
+    
+    window.formHeader = () => typeRedirect("html/formulaire");
+    window.addLines = () => typeRedirect("html/addLines");
+    window.newInvoice = () => typeRedirect("html/newInvoice");
+    window.goToIndex = () => typeRedirect("index");
+    
 
     window.toggleSidebar = toggleSidebar;
     window.importerJson = importerJson;
