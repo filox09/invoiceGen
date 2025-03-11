@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("print-btn").addEventListener("click", () => window.print());
     document.getElementById("save-json-btn").addEventListener("click", enregistrerJson);
 
-    const typeRedirect = page => window.location.href = `${page}.html`;
+    const typeRedirect = page => window.location.pathname = `${page}.html`;
     window.formHeader = () => typeRedirect("/html/formulaire");
     window.addLines = () => typeRedirect("/html/addLines");
     window.newInvoice = () => typeRedirect("/html/newInvoice");
