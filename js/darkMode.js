@@ -84,10 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("save-json-btn").addEventListener("click", enregistrerJson);
 
     const typeRedirect = page => window.location.href = `${page}.html`;
-    window.formHeader = () => typeRedirect("../html/formulaire");
-    window.addLines = () => typeRedirect("../html/addLines");
-    window.newInvoice = () => typeRedirect("../html/newInvoice");
-    window.goToIndex = () => typeRedirect("../index");
+    window.formHeader = () => typeRedirect("/html/formulaire");
+    window.addLines = () => typeRedirect("/html/addLines");
+    window.newInvoice = () => typeRedirect("/html/newInvoice");
+    window.goToIndex = () => typeRedirect("/index");
 
     window.toggleSidebar = toggleSidebar;
     window.importerJson = importerJson;
