@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="../css/darkMode.css">
     <title>inVoice Generator - DEVIS/FACTURE</title>
 </head>
+<style>
+.payment-terms {
+    margin-top: 20px;
+    
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 12px;
+}
+
+.payment-terms ul {
+    padding-left: 20px;
+}
+</style>
 <body>
     <!-- Bouton du menu burger -->
     <div class="burger-menu" onclick="toggleSidebar(this)">
@@ -49,7 +62,7 @@
             <h1>
                 <span id="devisName">DEVIS ABC CONSULTING</span>
             </h1>
-            <img id="logoAdd" src="../assets/logo.png" alt="logo" onclick="goToIndex()" style="width: 150px; height: auto;">
+            <img id="logoAdd" src="../assets/logo.png" alt="logo" onclick="goToIndex()" style="width: 100px; height: auto;">
         </div>
 
         <div class="info-section">
@@ -104,6 +117,18 @@
                 <div class="total-amount" id="totalAmount">0,00 €</div>
             </div>
         </div>
+
+        <div class="payment-terms">
+            <p>
+                Modalités de paiement : Le règlement s’effectuera par <strong>virement bancaire</strong> selon les conditions suivantes :
+            </p>
+            <ul>
+                <li>Le forfait est payable en une seule fois chaque 5 du mois, à hauteur de 150€ par mois.</li>
+                <li>Le paiement devra être effectué par le Client sans retard afin d’assurer la continuité du service.</li>
+            </ul>
+        </div>
+        
+
         <footer>
             <p><span id="footerCompanyNomEntreprise">XYZ DEVELOPMENT</span> - Merci pour votre confiance. Pour toute question: <a href="mailto:john.doe@example.com" id="footerCompanyEmail">john.doe@example.com</a></p>
         </footer>

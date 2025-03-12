@@ -49,20 +49,28 @@ window.onload = function () {
         });
     }
 
-    // Ajouter les lignes du devis
+    // Ajouter les lignes du devis avec "Offert" si prix = 0
     const lignesDevis = JSON.parse(localStorage.getItem('lignesDevis')) || [];
     const tbody = document.querySelector('#tableauDevis tbody');
+
     lignesDevis.forEach(({ service, description, heures, prix }) => {
         const row = tbody.insertRow();
-        [service, description, heures.toFixed(1), prix.toFixed(2)].forEach(text => row.insertCell().textContent = text);
+        row.insertCell().textContent = service;
+        row.insertCell().textContent = description;
+        row.insertCell().textContent = heures.toFixed(1);
+        row.insertCell().textContent = (prix === 0 || prix === "0.00") ? "Offert" : prix.toFixed(2) + " €";
     });
-    
+
     calculerTotal();
 };
 
 function calculerTotal() {
     let total = [...document.querySelectorAll('#tableauDevis tbody tr')]
-        .reduce((sum, row) => sum + parseFloat(row.cells[3].textContent || 0), 0);
+        .reduce((sum, row) => {
+            let prixText = row.cells[3].textContent;
+            let prix = prixText === "Offert" ? 0 : parseFloat(prixText.replace(" €", "")) || 0;
+            return sum + prix;
+        }, 0);
+
     document.getElementById('totalAmount').textContent = `${total.toFixed(2)} €`;
 }
-
