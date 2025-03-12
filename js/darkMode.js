@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const updateDarkMode = isDark => {
         body.classList.toggle("dark-mode", isDark);
         toggleSwitch.checked = isDark;
-        toggleText.textContent = isDark ? "Mode Clair" : "Mode Sombre";
+        toggleText.textContent = isDark ? "☀️" : "🌙";
     };
 
     const darkMode = localStorage.getItem("darkMode") ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "enabled" : "disabled");

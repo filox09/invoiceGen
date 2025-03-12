@@ -73,6 +73,10 @@
     transition: opacity 0.5s ease-in-out;
 }
 
+.sidebar a:hover {
+    background-color: #575757;
+}
+
 /* Lorsque la sidebar est ouverte, les liens apparaissent */
 .sidebar.open a {
     opacity: 1;
