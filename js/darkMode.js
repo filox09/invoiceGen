@@ -83,24 +83,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("print-btn").addEventListener("click", () => window.print());
     document.getElementById("save-json-btn").addEventListener("click", enregistrerJson);
 
-    const typeRedirect = (page) => {
-        const pathParts = window.location.pathname.split('/').filter(p => p); // Supprime les vides
+    const typeRedirect = page => {
         const isGithubPages = window.location.hostname.includes("github.io");
-    
-        let basePath = "";
-        if (isGithubPages && pathParts.length > 1) {
-            basePath = `/${pathParts[0]}`; // Le premier élément est le nom du repo
-        }
-    
-        window.location.href = `${basePath}/${page}.html`;
+        const repoName = isGithubPages ? window.location.pathname.split('/')[1] : "";
+        window.location.href = `/${repoName}/${page}.html`;
     };
     
-    // Fonctions pour rediriger vers les différentes pages
     window.formHeader = () => typeRedirect("html/formulaire");
     window.addLines = () => typeRedirect("html/addLines");
     window.newInvoice = () => typeRedirect("html/newInvoice");
     window.goToIndex = () => typeRedirect("index");
-    
     
 
     window.toggleSidebar = toggleSidebar;
