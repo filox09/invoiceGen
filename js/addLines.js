@@ -18,7 +18,7 @@ window.onload = function () {
     }
 
     function handleDragStart(e) {
-        if (editingRow) return; // Prevent drag if editing
+        if (editingRow) return;
         e.dataTransfer.setData('text/plain', e.target.dataset.index);
         e.target.classList.add('dragging');
     }
@@ -47,19 +47,19 @@ window.onload = function () {
     }
 
     function editLigne(index) {
-        if (editingRow !== null) return; // Prevent multiple edits
+        if (editingRow !== null) return;
         editingRow = index;
         const row = previewBody.rows[index];
         const cells = row.cells;
 
-        row.draggable = false; // Disable drag-and-drop while editing
+        row.draggable = false;
 
         for (let i = 0; i < cells.length - 1; i++) {
             const cell = cells[i];
             const input = document.createElement('input');
             input.type = 'text';
             input.value = cell.textContent;
-            input.classList.add('editable-field'); // Add the class to the input
+            input.classList.add('editable-field');
             cell.textContent = '';
             cell.appendChild(input);
         }
@@ -130,7 +130,12 @@ function ajouterLigne() {
         let lignesDevis = JSON.parse(localStorage.getItem('lignesDevis')) || [];
         lignesDevis.push({ service, description, heures, prix });
         localStorage.setItem('lignesDevis', JSON.stringify(lignesDevis));
-        window.location.reload();
+
+        // Affichage des 2 notifications SweetAlert2 avec délai
+        showToast("Cliquez deux fois sur une ligne pour la modifier.", "info");
+        setTimeout(() => showToast("Modifiez l’ordre de vos services en les faisant glisser", "info"), 2500);
+
+        setTimeout(() => window.location.reload(), 5000);
     } else {
         Swal.fire({
             title: 'Erreur',
@@ -142,12 +147,41 @@ function ajouterLigne() {
     }
 }
 
-const style = document.createElement('style');
-style.innerHTML = `
-    .custom-swal-button { background-color: #292929 !important; color: white !important; }
-    .dragging { opacity: 0.5; }
+// Fonction pour afficher un toast personnalisé
+function showToast(message, type) {
+    Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: type,
+        title: message,
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+        background: "#292929",
+        color: "#fff",
+        customClass: { 
+            popup: 'custom-toast', 
+            timerProgressBar: 'custom-progress-bar'
+        }
+    });
+}
+
+// Ajout d'un style pour améliorer l'affichage des toasts
+const toastStyle = document.createElement('style');
+toastStyle.innerHTML = `
+    .custom-toast {
+        margin-top: 10px !important;
+        border-radius: 8px !important;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
+    }
+    .swal2-container {
+        z-index: 9999 !important;
+    }
+    .swal2-timer-progress-bar {
+        background: rgba(255, 255, 255, 0.7) !important; /* Barre plus claire pour le dark mode */
+    }
 `;
-document.head.appendChild(style);
+document.head.appendChild(toastStyle);
 
 function supprimerLigne(index) {
     let lignesDevis = JSON.parse(localStorage.getItem('lignesDevis')) || [];
@@ -159,10 +193,15 @@ function supprimerLigne(index) {
 function viderLocalStorage() {
     localStorage.clear();
     Swal.fire({
-        title: 'Succès!',
-        text: 'Réinitialisation réussie !',
+        toast: true,
+        position: 'top-end',
         icon: 'success',
+        title: 'Réinitialisation réussie !',
         showConfirmButton: false,
-        timer: 1000
+        timer: 2000,
+        timerProgressBar: true,
+        background: "#292929",
+        color: "#fff",
+        customClass: { popup: 'custom-toast' }
     }).then(() => window.location.reload());
 }
