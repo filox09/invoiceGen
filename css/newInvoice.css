@@ -35,7 +35,7 @@ a {
 }
 
 .company-info, .client-info {
-    width: 45%;
+    width: 50%;
     font-size: 14px;
 }
 
@@ -151,4 +151,3 @@ footer {
     align-items: center;
     gap: 5px; /* Petit espace entre "Le" et l'input */
 }
-

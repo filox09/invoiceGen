@@ -47,7 +47,7 @@
     z-index: 999;
     top: 0;
     left: -250px; /* Cachée hors écran */
-    background-color: #111;
+    background-color: #0b304e;
     overflow-x: hidden;
     transition: transform 0.7s ease-in-out; /* Animation plus lente et plus fluide */
     padding-top: 60px;  
@@ -62,19 +62,26 @@
 
 
 /* Animation des liens */
-.sidebar a {
+.sidebar a, .file-label {
     padding: 10px 15px;
     text-decoration: none;
     cursor: pointer;
     font-size: 18px;
     color: white;
     display: block;
-    opacity: 0; /* Cachés par défaut */
+
     transition: opacity 0.5s ease-in-out;
 }
 
-.sidebar a:hover {
-    background-color: #575757;
+.sidebar a:hover, .file-label:hover  {
+    background-color: #124a79;
+}
+
+/* bouton json et print */
+
+/* Input caché */
+.file-input {
+    display: none;
 }
 
 /* Lorsque la sidebar est ouverte, les liens apparaissent */
@@ -92,7 +99,7 @@
 
 .dark-mode-toggle {
     position: absolute;
-    top: 15px;
+    bottom: 70px;
     right: 15px;
     display: flex;
     align-items: center;
@@ -169,7 +176,7 @@
     color: #e0e0e0;
 }
 
-.dark-mode .sidebar a:hover {
+.dark-mode .sidebar a:hover, .dark-mode .file-label:hover {
     background-color: #575757;
 }
 
@@ -183,71 +190,6 @@ input:checked + .slider {
 
 input:checked + .slider:before {
     transform: translateX(26px);
-}
-
-/* bouton json et print */
-
-/* Conteneur de l'upload */
-.upload-container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    width: 100%;
-    bottom: 60px;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-/* Input caché */
-.file-input {
-    display: none;
-}
-
-/* Label pour l'input file */
-.file-label {
-    background-color: #6200ea;
-    color: white;
-    padding: 5px 8px;
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 500;
-    transition: 0.3s ease;
-    display: inline-block;
-    text-align: center;
-   
-}
-
-.file-label:hover {
-    background-color: #3700b3;
-}
-
-/* Bouton d'importation */
-.md-button, #print-btn, #save-json-btn {
-    background-color: #03dac6;
-    color: black;
-    border: none;
-    padding: 5px 8px;
-    border-radius: 2px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s ease;
-    gap: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    
-}
-
-#reinitialisation {
-    background-color: rgb(184, 3, 3);
-}
-
-#reinitialisation:hover {
-    background-color: rgb(95, 0, 0);
-}
-
-.md-button:hover, #print-btn:hover, #save-json-btn:hover {
-    background-color: #018786;
 }
 
 @media print {
@@ -583,24 +525,7 @@ input:checked + .slider:before {
 
 /* Label pour l'input file */
 .dark-mode .file-label {
-    background-color: #045c13;
     color: #fff !important;
-}
-
-.dark-mode .file-label:hover {
-    background-color: #0c8012;
-}
-
-
-/* Bouton d'importation */
-
-.dark-mode .md-button,.dark-mode #print-btn, .dark-mode #save-json-btn {
-    background-color: #055f56;
-    color: #fff;
-}
-
-.dark-mode .md-button:hover, .dark-mode #print-btn:hover, .dark-mode #save-json-btn:hover {
-    background-color: #018786;
 }
 
 .dark-mode .swal2-popup {

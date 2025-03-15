@@ -65,12 +65,73 @@ window.onload = function () {
 };
 
 function calculerTotal() {
-    let total = [...document.querySelectorAll('#tableauDevis tbody tr')]
-        .reduce((sum, row) => {
-            let prixText = row.cells[3].textContent;
-            let prix = prixText === "Offert" ? 0 : parseFloat(prixText.replace(" €", "")) || 0;
-            return sum + prix;
-        }, 0);
+    let total = [...document.querySelectorAll('#tableauDevis tbody tr')].reduce((sum, row) => {
+        let prixText = row.cells[3].textContent;
+        let prix = prixText === "Offert" ? 0 : parseFloat(prixText.replace(" €", "")) || 0;
+        return sum + prix;
+    }, 0);
 
+    // Met à jour le total
     document.getElementById('totalAmount').textContent = `${total.toFixed(2)} €`;
+
+    // Calcul de l'acompte et du solde (moitié du total)
+    let acompte = (total / 2).toFixed(2) + "€";
+    let solde = (total / 2).toFixed(2) + "€";
+
+    // Met à jour les spans correspondants
+    document.getElementById('acompte').textContent = acompte;
+    document.getElementById('solde').textContent = solde;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const forfaitTerms = document.querySelector(".payment-terms-forfait");
+    const devisTerms = document.querySelector(".payment-terms-devis");
+
+    // Vérifier la valeur stockée dans le localStorage
+    const savedPaymentType = localStorage.getItem("selectedPaymentType") || "devis"; // Valeur par défaut = devis
+
+    if (savedPaymentType === "forfait") {
+        forfaitTerms.style.display = "block";
+        devisTerms.style.display = "none";
+    } else {
+        forfaitTerms.style.display = "none";
+        devisTerms.style.display = "block";
+    }
+});
+
+// Modalité de paement
+
+document.addEventListener("DOMContentLoaded", function () {
+    const forfaitTerms = document.querySelector(".payment-terms-forfait");
+    const devisTerms = document.querySelector(".payment-terms-devis");
+
+    // Vérifier la valeur stockée dans le localStorage
+    const savedPaymentType = localStorage.getItem("selectedPaymentType") || "devis"; // Valeur par défaut = devis
+
+    if (savedPaymentType === "forfait") {
+        forfaitTerms.style.display = "block";
+        devisTerms.style.display = "none";
+    } else {
+        forfaitTerms.style.display = "none";
+        devisTerms.style.display = "block";
+    }
+
+    // Ajout d'un éditeur WYSIWYG au double-clic
+    forfaitTerms.addEventListener("dblclick", function ()   {
+        // Rendre la liste éditable
+        forfaitTerms.contentEditable = true;
+        forfaitTerms.focus();
+
+        // Quand on quitte l'édition, on sauvegarde et désactive l'édition
+        forfaitTerms.addEventListener("blur", function () {
+            forfaitTerms.contentEditable = false;
+            localStorage.setItem("forfaitTermsContent", forfaitTerms.innerHTML); // Sauvegarde
+        });
+    });
+
+    // Charger les termes sauvegardés si existent
+    const savedContent = localStorage.getItem("forfaitTermsContent");
+    if (savedContent) {
+        forfaitTerms.innerHTML = savedContent;
+    }
+});

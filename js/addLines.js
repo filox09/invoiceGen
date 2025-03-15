@@ -118,6 +118,26 @@ window.onload = function () {
 
     updateTotal();
     checkEmptyTable();
+    // Vérifier si une ligne a été ajoutée avant le rechargement
+    if (localStorage.getItem('ligneAjoutee') === 'true') {
+        let lignesDevis = JSON.parse(localStorage.getItem('lignesDevis')) || [];
+        let lignesCount = lignesDevis.length;
+
+        // Définir les seuils où les notifications doivent apparaître
+        if (lignesCount === 1 || lignesCount === 5 || lignesCount === 10) {
+            showToast(
+                "Cliquez deux fois sur une ligne pour la modifier.", 
+                "info", 
+                5000, 
+                () => showToast("Modifiez l’ordre de vos services en les faisant glisser", "info", 5000)
+            );
+        }
+
+        // Supprimer l'indicateur d'ajout de ligne
+        localStorage.removeItem('ligneAjoutee');
+    }
+
+    
 };
 
 function ajouterLigne() {
@@ -131,11 +151,11 @@ function ajouterLigne() {
         lignesDevis.push({ service, description, heures, prix });
         localStorage.setItem('lignesDevis', JSON.stringify(lignesDevis));
 
-        // Affichage des 2 notifications SweetAlert2 avec délai
-        showToast("Cliquez deux fois sur une ligne pour la modifier.", "info");
-        setTimeout(() => showToast("Modifiez l’ordre de vos services en les faisant glisser", "info"), 2500);
+        // Stocker un indicateur avant de recharger la page
+        localStorage.setItem('ligneAjoutee', 'true');
 
-        setTimeout(() => window.location.reload(), 5000);
+        // Recharger la page immédiatement
+        location.reload();
     } else {
         Swal.fire({
             title: 'Erreur',
@@ -147,42 +167,6 @@ function ajouterLigne() {
     }
 }
 
-// Fonction pour afficher un toast personnalisé
-function showToast(message, type) {
-    Swal.fire({
-        toast: true,
-        position: 'top-end',
-        icon: type,
-        title: message,
-        showConfirmButton: false,
-        timer: 2500,
-        timerProgressBar: true,
-        background: "#292929",
-        color: "#fff",
-        customClass: { 
-            popup: 'custom-toast', 
-            timerProgressBar: 'custom-progress-bar'
-        }
-    });
-}
-
-// Ajout d'un style pour améliorer l'affichage des toasts
-const toastStyle = document.createElement('style');
-toastStyle.innerHTML = `
-    .custom-toast {
-        margin-top: 10px !important;
-        border-radius: 8px !important;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
-    }
-    .swal2-container {
-        z-index: 9999 !important;
-    }
-    .swal2-timer-progress-bar {
-        background: rgba(255, 255, 255, 0.7) !important; /* Barre plus claire pour le dark mode */
-    }
-`;
-document.head.appendChild(toastStyle);
-
 function supprimerLigne(index) {
     let lignesDevis = JSON.parse(localStorage.getItem('lignesDevis')) || [];
     lignesDevis.splice(index, 1);
@@ -190,18 +174,61 @@ function supprimerLigne(index) {
     window.location.reload();
 }
 
-function viderLocalStorage() {
-    localStorage.clear();
+function showToast(message, type, duration, nextToast = null) {
     Swal.fire({
         toast: true,
         position: 'top-end',
-        icon: 'success',
-        title: 'Réinitialisation réussie !',
+        icon: type,
+        title: message,
         showConfirmButton: false,
-        timer: 2000,
+        timer: duration,
         timerProgressBar: true,
         background: "#292929",
         color: "#fff",
-        customClass: { popup: 'custom-toast' }
-    }).then(() => window.location.reload());
+        allowOutsideClick: true,
+        didOpen: (toast) => {
+            toast.style.cursor = "pointer";
+            toast.addEventListener("click", () => {
+                Swal.close();
+                if (nextToast) {
+                    setTimeout(nextToast, 500); // Laisse le temps à l'animation de fermeture
+                }
+            });
+        },
+        didClose: () => { 
+            if (nextToast) {
+                setTimeout(nextToast, 800); // Ajoute un léger délai pour une transition fluide
+            }
+        },
+        customClass: { 
+            popup: 'custom-toast', 
+            timerProgressBar: 'swal2-timer-progress-bar' 
+        }
+    });
 }
+
+
+
+
+
+// Ajout du style pour améliorer l'affichage des toasts
+const toastStyle = document.createElement('style');
+toastStyle.innerHTML = `
+    .custom-toast {
+        margin-top: 10px !important;
+        border-radius: 8px !important;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
+        cursor: pointer !important; /* Curseur pointeur partout */
+    }
+    .swal2-icon, .swal2-title {
+        cursor: pointer !important; /* Curseur aussi sur l'icône et le texte */
+    }
+    .swal2-container {
+        z-index: 9999 !important;
+    }
+    .swal2-timer-progress-bar {
+        background: rgba(255, 255, 255, 0.7) !important; /* Barre plus claire pour le dark mode */
+        height: 5px !important; /* Assure qu'elle est bien visible */
+    }
+`;
+document.head.appendChild(toastStyle);

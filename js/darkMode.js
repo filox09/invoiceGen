@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Gestion des fichiers JSON
     const importerJson = () => {
         const file = document.getElementById("uploadJson").files[0];
-        if (!file) return Swal.fire({ title: "Erreur", text: "Veuillez sélectionner un fichier JSON.", icon: "error", timer: 2000 });
+        if (!file) return Swal.fire({ title: "Erreur", text: "Veuillez sélectionner un fichier JSON.", icon: "error", showConfirmButton: false, timer: 3000 });
 
         const reader = new FileReader();
         reader.onload = event => {
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 Object.entries(JSON.parse(event.target.result)).forEach(([key, value]) =>
                     localStorage.setItem(key, typeof value === "string" ? value : JSON.stringify(value))
                 );
-                Swal.fire("Données importées !", "", "success").then(() => location.reload());
+                Swal.fire({ title: "Données importées !", icon: "success", showConfirmButton: false, timer: 2000 }).then(() => location.reload());
             } catch {
                 Swal.fire("Erreur", "Erreur lors de la lecture du fichier JSON.", "error");
             }
@@ -78,21 +78,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("reinitialisation").addEventListener("click", () => {
         localStorage.clear();
-        Swal.fire({ title: "Réinitialisation réussie !", icon: "success", timer: 2000 }).then(() => window.location.reload());
+        Swal.fire({ title: "Êtes-vous sûr de vouloir réinitialiser ?", icon: "question", showCancelButton: true }).then(() => window.location.reload());
+       
     });
-    document.getElementById("print-btn").addEventListener("click", () => window.print());
+    document.getElementById("print-btn").addEventListener("click", () => {
+        const body = document.body;
+        const toggleSwitch = document.getElementById("darkModeToggle"); // Sélectionne le toggle
+        const darkModeEnabled = body.classList.contains("dark-mode");
+    
+        if (darkModeEnabled) {
+            body.classList.remove("dark-mode");
+            toggleSwitch.checked = false; // Désactive le switch
+        }
+    
+        setTimeout(() => {
+            window.print();
+    
+            if (darkModeEnabled) {
+                body.classList.add("dark-mode");
+                toggleSwitch.checked = true; // Réactive le switch
+            }
+        }, 100);
+    });
+    
     document.getElementById("save-json-btn").addEventListener("click", enregistrerJson);
-
-    const typeRedirect = page => {
+    const typeRedirect = (page) => {
         const isGithubPages = window.location.hostname.includes("github.io");
-        const repoName = isGithubPages ? window.location.pathname.split('/')[1] : "";
-        window.location.href = `/${repoName}/${page}.html`;
+        const isLocal = window.location.hostname === "localhost" || window.location.protocol.includes("file");
+        
+        let repoName = "";
+        if (isGithubPages) {
+            repoName = `/${window.location.pathname.split('/')[1]}`;
+        }
+        
+        const newPath = isLocal ? `/${page}.html` : `${repoName}/${page}.html`;
+        window.location.href = newPath;
     };
     
     window.formHeader = () => typeRedirect("html/formulaire");
     window.addLines = () => typeRedirect("html/addLines");
     window.newInvoice = () => typeRedirect("html/newInvoice");
     window.goToIndex = () => typeRedirect("index");
+    
     
 
     window.toggleSidebar = toggleSidebar;

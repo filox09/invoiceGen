@@ -22,6 +22,7 @@
                 </svg>
             </div>
 
+
             <!-- Barre latérale -->
             <div id="sidebar" class="sidebar">
                 <div class="dark-mode-toggle">
@@ -35,19 +36,20 @@
                 <a onclick="newInvoice()">🔍 ┃ Aperçu de la Facture / Devis</a>
                 <a onclick="formHeader()">✏️ ┃ Modification des Informations</a>
                 <a onclick="addLines()">➕ ┃ Ajouter des Services</a>
-                <div class="upload-container">
-                    <input type="file" id="uploadJson" accept=".json" class="file-input">
-                    <label for="uploadJson" class="file-label">📂 Choisir un fichier JSON</label>
-                    <button class="md-button" onclick="importerJson()">📥 Importer JSON</button>
-                    <button class="md-button" id="reinitialisation">🗑️ Réinitialiser</button>
-                    <button id="save-json-btn">💾 Enregistrer en JSON</button>
-                    <button id="print-btn">📄 Imprimer en PDF</button>
-                </div>
+
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.466); margin: 2em;"></div>
+                
+                <input type="file" id="uploadJson" accept=".json" class="file-input">
+                <label for="uploadJson" class="file-label">📂 ┃ Choisir un fichier JSON</label>
+                <a onclick="importerJson()">📥 ┃ Importer JSON</a>
+                <a id="save-json-btn" onclick="saveJson()">💾 ┃ Enregistrer en JSON</a>
+                <a id="print-btn" onclick="printPdf()">📄 ┃ Imprimer en PDF</a>
+                <a id="reinitialisation" onclick="resetForm()">🗑️ ┃ Réinitialiser</a>
             </div>
             <div class="container">
-                <img src="assets/logo.png" onclick="toggleSidebar(this)" alt="G9 DEVELOPMENT" class="logo">
+                <img src="assets/logo.png" onclick="toggleSidebar(this)" style="cursor: pointer;" alt="G9 DEVELOPMENT" class="logo">
                 <div class="title">Invoice Generator</div>
-                <div class="description">Votre solution pour la gestion des devis et factures personnalisées.</div>
+                <div class="description">Votre solution pour la gestion de vos devis et factures.</div>
             </div>
         </div>
             <script src="js/darkMode.js"></script> <!-- Link to the dark-mode.js JavaScript -->  

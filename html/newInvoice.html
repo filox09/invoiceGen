@@ -16,6 +16,7 @@
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     font-size: 12px;
+    font-weight: 400;
 }
 
 .payment-terms ul {
@@ -33,28 +34,28 @@
         </svg>
     </div>
 
-    <!-- Barre latérale -->
-    <div id="sidebar" class="sidebar">
-        <div class="dark-mode-toggle">
-            <span class="toggle-text">Mode Sombre</span>
-            <label class="switch">
-                <input type="checkbox" id="darkModeToggle">
-                <span class="slider"></span>
-            </label>
-        </div>
-        <a onclick="goToIndex()">🏠 ┃ Accueil</a>
-        <a onclick="newInvoice()">🔍 ┃ Aperçu de la Facture / Devis</a>
-        <a onclick="formHeader()">✏️ ┃ Modification des Informations</a>
-        <a onclick="addLines()">➕ ┃ Ajouter des Services</a>
-        <div class="upload-container">
-            <input type="file" id="uploadJson" accept=".json" class="file-input">
-            <label for="uploadJson" class="file-label">📂 Choisir un fichier JSON</label>
-            <button class="md-button" onclick="importerJson()">📥 Importer JSON</button>
-            <button class="md-button" id="reinitialisation">🗑️ Réinitialiser</button>
-            <button id="save-json-btn">💾 Enregistrer en JSON</button>
-            <button id="print-btn">📄 Imprimer en PDF</button>
-        </div>
+<!-- Barre latérale -->
+<div id="sidebar" class="sidebar">
+    <div class="dark-mode-toggle">
+        <span class="toggle-text">Mode Sombre</span>
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider"></span>
+        </label>
     </div>
+    <a onclick="goToIndex()">🏠 ┃ Accueil</a>
+    <a onclick="newInvoice()">🔍 ┃ Aperçu de la Facture / Devis</a>
+    <a onclick="formHeader()">✏️ ┃ Modification des Informations</a>
+    <a onclick="addLines()">➕ ┃ Ajouter des Services</a>
+    <br><br>
+    <input type="file" id="uploadJson" accept=".json" class="file-input">
+    <label for="uploadJson" class="file-label">📂 ┃ Choisir un fichier JSON</label>
+    <a onclick="importerJson()">📥 ┃ Importer JSON</a>
+    <a id="save-json-btn" onclick="saveJson()">💾 ┃ Enregistrer en JSON</a>
+    <a id="print-btn" onclick="printPdf()">📄 ┃ Imprimer en PDF</a>
+    <a id="reinitialisation" onclick="resetForm()">🗑️ ┃ Réinitialiser</a>
+</div>
+
 
 
     <div class="container">
@@ -117,18 +118,20 @@
                 <div class="total-amount" id="totalAmount">0,00 €</div>
             </div>
         </div>
-
         <div class="payment-terms">
             <p>
-                Modalités de paiement : Le règlement s’effectuera par <strong>virement bancaire</strong> selon les conditions suivantes :
+                <strong>Modalités de paiement :</strong> Le règlement s’effectuera par <strong>virement bancaire</strong> selon les conditions suivantes :
             </p>
-            <ul>
-                <li>Le forfait est payable en une seule fois chaque 5 du mois, à hauteur de 150€ par mois.</li>
+            <ul class="payment-terms-forfait" style="display: none;">
+                <li>Le forfait est payable en une seule fois chaque <span id="forfait-date">5</span> du mois, à hauteur de <span id="forfait-price">150€</span> par mois.</li>
                 <li>Le paiement devra être effectué par le Client sans retard afin d’assurer la continuité du service.</li>
+            </ul>
+            <ul class="payment-terms-devis" style="display: block;">
+                <li><strong>Acompte :</strong> Un premier paiement de <strong>50%</strong> du montant total, soit <span id="acompte" style="font-weight: 700;">000,00€</span>, sera versé par le Client à l'acceptation du devis.</li>
+                <li><strong>Solde :</strong> Le second paiement de <strong>50%</strong>, soit <span id="solde" style="font-weight: 700;">000,00€</span>, sera versé à la fin de la prestation.</li>
             </ul>
         </div>
         
-
         <footer>
             <p><span id="footerCompanyNomEntreprise">XYZ DEVELOPMENT</span> - Merci pour votre confiance. Pour toute question: <a href="mailto:john.doe@example.com" id="footerCompanyEmail">john.doe@example.com</a></p>
         </footer>

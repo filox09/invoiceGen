@@ -34,14 +34,13 @@
             <a onclick="newInvoice()">🔍 ┃ Aperçu de la Facture / Devis</a>
             <a onclick="formHeader()">✏️ ┃ Modification des Informations</a>
             <a onclick="addLines()">➕ ┃ Ajouter des Services</a>
-            <div class="upload-container">
-                <input type="file" id="uploadJson" accept=".json" class="file-input">
-                <label for="uploadJson" class="file-label">📂 Choisir un fichier JSON</label>
-                <button class="md-button" onclick="importerJson()">📥 Importer JSON</button>
-                <button class="md-button" id="reinitialisation">🗑️ Réinitialiser</button>
-                <button id="save-json-btn">💾 Enregistrer en JSON</button>
-                <button id="print-btn">📄 Imprimer en PDF</button>
-            </div>
+            <br><br>
+            <input type="file" id="uploadJson" accept=".json" class="file-input">
+            <label for="uploadJson" class="file-label">📂 ┃ Choisir un fichier JSON</label>
+            <a onclick="importerJson()">📥 ┃ Importer JSON</a>
+            <a id="save-json-btn" onclick="saveJson()">💾 ┃ Enregistrer en JSON</a>
+            <a id="print-btn" onclick="printPdf()">📄 ┃ Imprimer en PDF</a>
+            <a id="reinitialisation" onclick="resetForm()">🗑️ ┃ Réinitialiser</a>
         </div>
         <div class="container">
             <div class="containerLogo">
@@ -113,7 +112,14 @@
 
                     <label for="bic">Votre Code BIC :</label>
                     <input type="text" id="bic" name="bic" placeholder="ABCDEFGH123">
+
+                    <div class="payment-selection">
+                        <input type="radio" name="paymentType" value="forfait"> Forfait
+                        <input type="radio" name="paymentType" value="devis" checked> Devis
+                    </div>
                 </form>
+    
+                
             </div>
     
             <div class="button">       

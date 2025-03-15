@@ -18,6 +18,25 @@ function enregistrerDonnees() {
         timer: 2000
     });
 }
+// Affichage de la méthode de paiement sélectionnée
+document.addEventListener("DOMContentLoaded", function () {
+    const paymentRadios = document.querySelectorAll("input[name='paymentType']");
+
+    paymentRadios.forEach(radio => {
+        radio.addEventListener("change", function () {
+            localStorage.setItem("selectedPaymentType", this.value);
+        });
+    });
+
+    // Vérifier si un choix a déjà été enregistré et cocher le bon bouton
+    const savedPaymentType = localStorage.getItem("selectedPaymentType");
+    if (savedPaymentType) {
+        const selectedRadio = document.querySelector(`input[name='paymentType'][value='${savedPaymentType}']`);
+        if (selectedRadio) {
+            selectedRadio.checked = true;
+        }
+    }
+});
 
 function chargerDonnees() {
     const forms = [document.getElementById('clientForm2'), document.getElementById('clientForm')];
@@ -38,3 +57,5 @@ function chargerDonnees() {
 }
 
 document.addEventListener('DOMContentLoaded', chargerDonnees);
+
+
