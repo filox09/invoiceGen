@@ -20,21 +20,16 @@ function enregistrerDonnees() {
 }
 // Affichage de la méthode de paiement sélectionnée
 document.addEventListener("DOMContentLoaded", function () {
-    const paymentRadios = document.querySelectorAll("input[name='paymentType']");
+    const paymentSelect = document.querySelector("select[name='paymentType']");
 
-    paymentRadios.forEach(radio => {
-        radio.addEventListener("change", function () {
-            localStorage.setItem("selectedPaymentType", this.value);
-        });
+    paymentSelect.addEventListener("change", function () {
+        localStorage.setItem("selectedPaymentType", this.value);
     });
 
-    // Vérifier si un choix a déjà été enregistré et cocher le bon bouton
+    // Vérifier si un choix a déjà été enregistré et sélectionner la bonne option
     const savedPaymentType = localStorage.getItem("selectedPaymentType");
     if (savedPaymentType) {
-        const selectedRadio = document.querySelector(`input[name='paymentType'][value='${savedPaymentType}']`);
-        if (selectedRadio) {
-            selectedRadio.checked = true;
-        }
+        paymentSelect.value = savedPaymentType;
     }
 });
 

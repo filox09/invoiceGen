@@ -256,16 +256,6 @@ input:checked + .slider:before {
     width: 100% !important;
 }
 
-/* Focus sur les champs */
-.dark-mode input[type="text"]:focus,
-.dark-mode input[type="email"]:focus,
-.dark-mode input[type="url"]:focus,
-.dark-mode input[type="date"]:focus,
-.dark-mode input[type="number"]:focus,
-.dark-mode textarea:focus {
-    border-color: #6200ea !important;
-    box-shadow: 0 0 0 2px rgba(98, 0, 234, 0.2) !important;
-}
 
 /* Boutons */
 .dark-mode input[type="button"]{
@@ -429,15 +419,6 @@ input:checked + .slider:before {
 /* Séparateur en mode sombre */
 .dark-mode .separator {
     border-top: 1px solid #555 !important;
-}
-
-/* Survol des éléments de formulaire en mode sombre */
-.dark-mode input[type="text"]:focus,
-.dark-mode input[type="email"]:focus,
-.dark-mode input[type="url"]:focus,
-.dark-mode input[type="date"]:focus {
-    border-color: #6200ea !important;
-    box-shadow: 0 0 0 2px rgba(98, 0, 234, 0.2) !important;
 }
 
 /* Ajustement des barres de défilement dans le mode sombre */

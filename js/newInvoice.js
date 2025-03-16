@@ -100,20 +100,19 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Modalité de paement
-
 document.addEventListener("DOMContentLoaded", function () {
     const forfaitTerms = document.querySelector(".payment-terms-forfait");
-    const devisTerms = document.querySelector(".payment-terms-devis");
+    const factureTerms = document.querySelector(".payment-terms-devis"); // Anciennement "devis"
 
     // Vérifier la valeur stockée dans le localStorage
-    const savedPaymentType = localStorage.getItem("selectedPaymentType") || "devis"; // Valeur par défaut = devis
+    const savedPaymentType = localStorage.getItem("selectedPaymentType") || "facture"; // Valeur par défaut = "facture"
 
     if (savedPaymentType === "forfait") {
         forfaitTerms.style.display = "block";
-        devisTerms.style.display = "none";
+        factureTerms.style.display = "none";
     } else {
         forfaitTerms.style.display = "none";
-        devisTerms.style.display = "block";
+        factureTerms.style.display = "block";
     }
 
     // Ajout d'un éditeur WYSIWYG au double-clic

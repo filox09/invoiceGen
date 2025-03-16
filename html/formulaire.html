@@ -24,7 +24,7 @@
         <!-- Barre latérale -->
         <div id="sidebar" class="sidebar">
             <div class="dark-mode-toggle">
-                <span class="toggle-text">Mode Sombre</span>
+                <span class="toggle-text"></span>
                 <label class="switch">
                     <input type="checkbox" id="darkModeToggle">
                     <span class="slider"></span>
@@ -34,7 +34,7 @@
             <a onclick="newInvoice()">🔍 ┃ Aperçu de la Facture / Devis</a>
             <a onclick="formHeader()">✏️ ┃ Modification des Informations</a>
             <a onclick="addLines()">➕ ┃ Ajouter des Services</a>
-            <br><br>
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.466); margin: 2em;"></div>
             <input type="file" id="uploadJson" accept=".json" class="file-input">
             <label for="uploadJson" class="file-label">📂 ┃ Choisir un fichier JSON</label>
             <a onclick="importerJson()">📥 ┃ Importer JSON</a>
@@ -44,10 +44,19 @@
         </div>
         <div class="container">
             <div class="containerLogo">
-                <img class="logo" src="../assets/logo.png" alt="G9 DEVELOMENT" onclick="goToIndex()" width="100px">
+                <img class="logo" src="../assets/logo.png" alt="G9 DEVELOMENT" onclick="newInvoice()" width="100px">
             </div>
             <h1>Personnalisation des informations</h1><br>
+            <div class="payment-selection" style="padding: 2em;">
+                <label for="paymentType">Choisir le type de paiement :</label>
+                <select name="paymentType" id="paymentType" style="width: 80px;">
+                    <option value="forfait">Forfait</option>
+                    <option value="facture">Facture</option>
+                </select>
+            </div>
+
             <div class="formulaire">
+                
                 <form id="clientForm2">
                     <label for="devisName">Nom du Devis/Facture :</label>
                     <input type="text" id="devisName" name="devisName" placeholder="DEVIS XYZ DEVELOPMENT">
@@ -107,19 +116,12 @@
                     <label for="siret">N° SIRET du Client :</label>
                     <input type="text" id="siret" name="siret" placeholder="98765432100098">
             
-
                     <div class="separator"></div>
 
                     <label for="bic">Votre Code BIC :</label>
                     <input type="text" id="bic" name="bic" placeholder="ABCDEFGH123">
 
-                    <div class="payment-selection">
-                        <input type="radio" name="paymentType" value="forfait"> Forfait
-                        <input type="radio" name="paymentType" value="devis" checked> Devis
-                    </div>
-                </form>
-    
-                
+                </form>           
             </div>
     
             <div class="button">       

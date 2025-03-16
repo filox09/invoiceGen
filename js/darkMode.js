@@ -66,8 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = Object.fromEntries(keys.map(key => [key, localStorage.getItem(key)]));
         const fileName = `${data.devisName?.replace(/\s+/g, "_") || "Devis"}-${data.devisNumero?.replace(/\s+/g, "_") || "Sans_Numéro"}.json`;
 
-        Swal.fire({ title: "Enregistrer le fichier JSON ?", text: fileName, icon: "question", showCancelButton: true })
-            .then(result => {
+            Swal.fire({ 
+                title: "Enregistrer le fichier JSON ?", 
+                text: fileName, 
+                icon: "question", 
+                showCancelButton: true, 
+                cancelButtonText: "Annuler" 
+            }).then(result => {
                 if (result.isConfirmed) {
                     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
                     Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: fileName }).click();
@@ -77,9 +82,18 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     document.getElementById("reinitialisation").addEventListener("click", () => {
-        localStorage.clear();
-        Swal.fire({ title: "Êtes-vous sûr de vouloir réinitialiser ?", icon: "question", showCancelButton: true }).then(() => window.location.reload());
-       
+        Swal.fire({
+            title: "Êtes-vous sûr de vouloir réinitialiser ?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Oui",
+            cancelButtonText: "Annuler"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear();
+                window.location.reload();
+            }
+        });
     });
     document.getElementById("print-btn").addEventListener("click", () => {
         const body = document.body;
