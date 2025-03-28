@@ -206,11 +206,6 @@ function showToast(message, type, duration, nextToast = null) {
         }
     });
 }
-
-
-
-
-
 // Ajout du style pour améliorer l'affichage des toasts
 const toastStyle = document.createElement('style');
 toastStyle.innerHTML = `
