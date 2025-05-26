@@ -11,6 +11,15 @@
     top: 15px;
     left: 15px;
     z-index: 1000;
+
+    /* Reset default button styles */
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit; /* Inherit font from body/parent */
+    color: inherit; /* Inherit color for text/SVG stroke if not explicitly set */
+    text-align: inherit; /* Inherit text alignment */
+    line-height: 0; /* Ensure SVGs are not affected by button line-height */
 }
 
 .burger-icon, .close-icon {
